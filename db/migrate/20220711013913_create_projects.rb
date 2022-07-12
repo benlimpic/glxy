@@ -7,6 +7,7 @@ class CreateProjects < ActiveRecord::Migration[7.0]
       t.string :priority
       t.string :life_cycle
       t.string :slug
+      t.belongs_to :user, null: false, foreign_key: true
 
       t.timestamps
     end

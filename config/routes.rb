@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   resources :users
-  resources :subtasks
-  resources :tasks
   resources :projects
+  resources :tasks
+  resources :subtasks
+
 
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 
