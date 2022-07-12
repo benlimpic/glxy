@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 
   # GET /tasks
   def index
-    @tasks = Task.all
+    @tasks = Task.all.where(user_id: session[:user_id])
 
     render json: @tasks
   end
@@ -41,11 +41,11 @@ class TasksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
-      @task = Task.find(params[:id])
+      @task = Task.where(user_id: session[:user_id]).find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:title, :description, :body, :priority, :life_cycle, :project_id)
+      params.require(:task).permit(:title, :description, :body, :priority, :life_cycle, :project_id, :user_id)
     end
 end

@@ -49,7 +49,8 @@ tasks = Task.create([
     body: "Hmmm it looks like these symbols are a spell book for the ancient Egyptians.. maybe I shouldn't have read it outloud!",
     priority: "High",
     life_cycle: "Edit Requested",
-    project: projects.first
+    project: projects.first,
+    user: users.first
   },
   {
     title: "On our way to England!",
@@ -57,7 +58,8 @@ tasks = Task.create([
     body: "I would like to visit the Tower of London, the Big Ben, and the Buckingham Palace!",
     priority: "medium",
     life_cycle: "In Progress",
-    project: projects.first
+    project: projects.first,
+    user: users.first
   },
   {
     title: "Collecting Moon Rocks!",
@@ -65,7 +67,8 @@ tasks = Task.create([
     body: "I found a weird moon cave with strange rocks inside!",
     priority: "None",
     life_cycle: "Ready for Review",
-    project: projects.second
+    project: projects.second,
+    user: users.first
   },
   {
     title: "Exploring the moon!",
@@ -73,7 +76,8 @@ tasks = Task.create([
     body: "We need to map and explore the Sea of Tranquility, the dark side of the moon, and visit the site of the first moon landing!",
     priority: "Low",
     life_cycle: "Assigned",
-    project: projects.second
+    project: projects.second,
+    user: users.first
   },
   {
     title: "Befriend some Dragons",
@@ -81,7 +85,8 @@ tasks = Task.create([
     body: "The Dragons insist on getting their share of the gold for all Dragon merchandise sold, They sure do drive a hard bargain!",
     priority: "Urgent",
     life_cycle: "Completed",
-    project: projects.third
+    project: projects.third,
+    user: users.second
   }
 ])
 
@@ -92,7 +97,8 @@ subtasks = Subtask.create([
     body: "Monty the Mummy wanted to accompany us on our trip around the world but we weren’t quite sure how the customs officials would react… to the smell.",
     priority: "Urgent",
     life_cycle: "In Progress",
-    task: tasks.first
+    task: tasks.first,
+    user: users.first
   },
   {
     title: "Fresh Air!",
@@ -100,7 +106,8 @@ subtasks = Subtask.create([
     body: "We are installing some AC in Monty’s Pyramids to keep him cool and fresh! We also brought him some fresh bandages.",
     priority: "Medium",
     life_cycle: "Edit Requested",
-    task: tasks.first
+    task: tasks.first,
+    user: users.first
   },
   {
     title: "Buckingham Palace Adventure!",
@@ -108,7 +115,8 @@ subtasks = Subtask.create([
     body: "The queen is very generous with the lumps of sugar, the sandwitches were tasty, and the corgies were hilarious and friendly!",
     priority: "Urgent",
     life_cycle: "In Progress",
-    task: tasks.second
+    task: tasks.second,
+    user: users.first
   },
   {
     title: "Daylight Savings Time!",
@@ -116,7 +124,8 @@ subtasks = Subtask.create([
     body: "The Queen has requested that we assist in updating Big Ben to the correct time for daylight savings time.",
     priority: "None",
     life_cycle: "Assigned",
-    task: tasks.second
+    task: tasks.second,
+    user: users.first
   },
   {
     title: "Eggs not Rocks!",
@@ -124,7 +133,8 @@ subtasks = Subtask.create([
     body: "While preparing to begin our mission home, the “rocks/eggs in the cargo bay began to shake and crack… Suddenly, hundreds of glowing gummy bear things came shooting out of the dusty shells and started bouncing off the walls and asking to meet our leader. The captain is now addressing the flock and will soon show them the first Minions movie as a treat.",
     priority: "None",
     life_cycle: "In Progress",
-    task: tasks.third
+    task: tasks.third,
+    user: users.first
   },
   {
     title: "Baby Sitting",
@@ -132,7 +142,8 @@ subtasks = Subtask.create([
     body: "These baby aliens sure know how to party, however they have been a bit of a challenge to get to bed on time!",
     priority: "High",
     life_cycle: "Ready for Review",
-    task: tasks.third
+    task: tasks.third,
+    user: users.first
   },
   {
     title: "No waves in this sea!",
@@ -140,7 +151,8 @@ subtasks = Subtask.create([
     body: "The captain was dissapointed in the poor surf but was able to pull some excellent backflips on his dustboard.",
     priority: "Low",
     life_cycle: "Assigned",
-    task: tasks.fourth
+    task: tasks.fourth,
+    user: users.first
   },
   {
     title: "Moon Landing?",
@@ -148,7 +160,8 @@ subtasks = Subtask.create([
     body: "Our map could be wrong... but we are pretty sure the original moon landing didn't happen the way we were told...!",
     priority: "None",
     life_cycle: "In Progress",
-    task: tasks.fourth
+    task: tasks.fourth,
+    user: users.first
   },
   {
     title: "Very Cool Shirt!",
@@ -156,7 +169,8 @@ subtasks = Subtask.create([
     body: "Our Dragon merchandise is so successful we have decided to release an entire line of fireproof clothing. Unfortunately for us, these Dragons are some real diva designers; they only respond to Ja Ja, Mugatu, and Patricia.",
     priority: "Low",
     life_cycle: "Completed",
-    task: tasks.fifth
+    task: tasks.fifth,
+    user: users.second
   }
 ])
 

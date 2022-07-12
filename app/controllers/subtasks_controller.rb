@@ -3,7 +3,7 @@ class SubtasksController < ApplicationController
 
   # GET /subtasks
   def index
-    @subtasks = Subtask.all
+    @subtasks = Subtask.all.where(user_id: session[:user_id])
 
     render json: @subtasks
   end
@@ -41,11 +41,11 @@ class SubtasksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_subtask
-      @subtask = Subtask.find(params[:id])
+      @subtask = Subtask.where(user_id: session[:user_id]).find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def subtask_params
-      params.require(:subtask).permit(:title, :description, :body, :priority, :life_cycle, :task_id)
+      params.require(:subtask).permit(:title, :description, :body, :priority, :life_cycle, :task_id, :user_id)
     end
 end
