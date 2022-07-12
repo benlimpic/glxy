@@ -1,5 +1,20 @@
 puts "planting some seeds..."
 
+users = User.create([
+  {
+    name: "Ben Gerald",
+    email: "benlimpic@gmail.com",
+    username: "username",
+    password_digest: BCrypt::Password.create('password')
+  },
+  {
+    name: "Daisy Mae",
+    email: "daisymaelimpic@gmail.com",
+    username: "username5",
+    password_digest: BCrypt::Password.create('password')
+  }
+])
+
 projects = Project.create([
   {
     title: "Explore the World!",
@@ -7,6 +22,7 @@ projects = Project.create([
     body: "I would like to visit Egypt, England, Australia, The North Pole, and the Amazon!",
     priority: "Urgent",
     life_cycle: "In Progress",
+    user: users.first
   },
   {
     title: "Explore the Moon!",
@@ -14,6 +30,7 @@ projects = Project.create([
     body: "I would like to visit craters, climb moon mountains, play moon golf, bounce around for science, and take samples!",
     priority: "Medium",
     life_cycle: "Assigned",
+    user: users.first
   },
   {
     title: "Start my own Zoo",
@@ -21,6 +38,7 @@ projects = Project.create([
     body: "I need to quest the wilderness and find a unicorn, several dragons, one kraken, the Loch Ness monster, and Bigfoot!",
     priority: "Low",
     life_cycle: "Completed",
+    user: users.second
   }
 ])
 
