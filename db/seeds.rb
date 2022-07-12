@@ -1,5 +1,20 @@
 puts "planting some seeds..."
 
+users = User.create([
+  {
+    name: "Ben Gerald",
+    email: "benlimpic@gmail.com",
+    username: "username",
+    password_digest: BCrypt::Password.create('password')
+  },
+  {
+    name: "Daisy Mae",
+    email: "daisymaelimpic@gmail.com",
+    username: "username5",
+    password_digest: BCrypt::Password.create('password')
+  }
+])
+
 projects = Project.create([
   {
     title: "Explore the World!",
