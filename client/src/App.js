@@ -21,7 +21,7 @@ function App() {
 
   if (!user) return <Login user={user} onLogin={setUser} />;
 
-
+  
   return (
 
     <div className="app">
