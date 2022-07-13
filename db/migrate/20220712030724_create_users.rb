@@ -10,3 +10,5 @@ class CreateUsers < ActiveRecord::Migration[7.0]
     end
   end
 end
+
+#rails db:drop db:create db:migrate:up VERSION=20220712030724 db:migrate db:seed

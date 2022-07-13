@@ -1,6 +1,7 @@
 class Task < ApplicationRecord
-  has_many :subtasks, dependent: :destroy
+  belongs_to :user
   belongs_to :project
+  has_many :subtasks, dependent: :destroy
 
   before_create :slugify
 

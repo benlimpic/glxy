@@ -1,4 +1,5 @@
 class Subtask < ApplicationRecord
+  belongs_to :user
   belongs_to :task
 
   before_create :slugify
