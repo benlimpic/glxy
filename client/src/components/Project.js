@@ -30,7 +30,8 @@ function Project(props) {
                           <li>{task.life_cycle}</li>
                         </ul>
                         <SubtaskSelect 
-                        project={project} 
+                        project={project}
+                        selectTask={props.selectTask} 
                         selectSubtask={props.selectSubtask}
                         setSelectSubtask={props.setSelectSubtask}
                         />
