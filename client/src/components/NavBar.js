@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 
 
 function NavBar({ user, setUser }) {
@@ -13,12 +13,8 @@ function NavBar({ user, setUser }) {
 
   return (
     <div className="navbar">
-
-      <div >
-        <Link to="/" onClick={() => {
-          }}>Task Galaxy</Link>
-      </div>
       <nav>
+        <h2>Glxy</h2>
         <button variant="fill" onClick={handleLogoutClick}>
           Logout
         </button>

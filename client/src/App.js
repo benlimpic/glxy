@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
@@ -27,9 +26,7 @@ function App() {
     <div className="app">
       <NavBar user={user} setUser={setUser} />
     <main>
-      <Routes>
-        <Route path="/" element={<Home/>} />
-      </Routes>
+        <Home path="/" element={<Home/>} />
     </main>
     </div>
 
