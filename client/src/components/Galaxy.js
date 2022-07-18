@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function Project({project, tasks}) {
+function Galaxy({project, tasks}) {
 
   return  <div> 
             <div key={project.id}>
@@ -31,4 +31,4 @@ function Project({project, tasks}) {
           </div>  
   }
 
-export default Project
+export default Galaxy

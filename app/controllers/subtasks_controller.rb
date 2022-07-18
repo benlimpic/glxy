@@ -46,6 +46,6 @@ class SubtasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def subtask_params
-      params.require(:subtask).permit(:title, :description, :body, :priority, :life_cycle, :task_id, :user_id)
+      params.require(:subtask).permit(:title, :description, :body, :priority, :life_cycle, :project_id, :task_id, :user_id)
     end
 end

@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 
 
 
-function App() {
+function App({}) {
 
   const [user, setUser] = useState(null);
 
