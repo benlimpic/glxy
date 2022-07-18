@@ -1,5 +1,6 @@
 import { useState, useEffect} from 'react'
 import Project from '../components/Project'
+import GalaxyBuild from '../components/GalaxyBuild'
 import ProjectSelect from '../components/ProjectSelect'
 
 
@@ -9,6 +10,7 @@ const Home = () => {
   const [project, setProject] = useState([])
   const [projects, setProjects] = useState([])
   const [tasks, setTasks] = useState([])
+  const [galaxy, setGalaxy] = useState(false)
 
 
   useEffect(() => {
@@ -29,14 +31,24 @@ const Home = () => {
 
     }}, [selectProject])
 
+    const handleGalaxyClick = () => {
+      setGalaxy(!galaxy)
+    }
+
   return (
       <div>
+        <button onClick={handleGalaxyClick}>Galaxy</button>
         <ProjectSelect 
           projects={projects} 
           setSelectProject={setSelectProject} />
-        <Project
+        { galaxy ? 
+        <GalaxyBuild 
           project={project} 
-          tasks={tasks} /> 
+          tasks={tasks}/> 
+        : 
+        <Project 
+          project={project} 
+          tasks={tasks} /> }
       </div>  
   )
 }
