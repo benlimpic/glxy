@@ -34,10 +34,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_12_030724) do
     t.string "priority"
     t.string "life_cycle"
     t.string "slug"
+    t.bigint "project_id", null: false
     t.bigint "task_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_subtasks_on_project_id"
     t.index ["task_id"], name: "index_subtasks_on_task_id"
     t.index ["user_id"], name: "index_subtasks_on_user_id"
   end
@@ -67,6 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_12_030724) do
   end
 
   add_foreign_key "projects", "users"
+  add_foreign_key "subtasks", "projects"
   add_foreign_key "subtasks", "tasks"
   add_foreign_key "subtasks", "users"
   add_foreign_key "tasks", "projects"

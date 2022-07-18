@@ -7,6 +7,7 @@ class CreateSubtasks < ActiveRecord::Migration[7.0]
       t.string :priority
       t.string :life_cycle
       t.string :slug
+      t.belongs_to :project, null: false, foreign_key: true
       t.belongs_to :task, null: false, foreign_key: true
       t.belongs_to :user, null: false, foreign_key: true
 

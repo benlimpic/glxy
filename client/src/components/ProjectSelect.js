@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 
 function ProjectSelect(props) {
 
-  const projectOptions = props.projects.map((project) => {
-    return <option key={project.id} value={project.id}>{project.title}</option>})
+  const projectOptions = props.projects.map((data) => {
+    return <option key={data.id} value={data.id}>{data.title}</option>})
 
   return  <select onChange={(e) => {props.setSelectProject(e.target.value)}}>
             <option value={0}>Select Project</option>

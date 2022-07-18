@@ -97,6 +97,7 @@ subtasks = Subtask.create([
     body: "Monty the Mummy wanted to accompany us on our trip around the world but we weren’t quite sure how the customs officials would react… to the smell.",
     priority: "Urgent",
     life_cycle: "In Progress",
+    project: projects.first,
     task: tasks.first,
     user: users.first
   },
@@ -106,6 +107,7 @@ subtasks = Subtask.create([
     body: "We are installing some AC in Monty’s Pyramids to keep him cool and fresh! We also brought him some fresh bandages.",
     priority: "Medium",
     life_cycle: "Edit Requested",
+    project: projects.first,
     task: tasks.first,
     user: users.first
   },
@@ -115,6 +117,7 @@ subtasks = Subtask.create([
     body: "The queen is very generous with the lumps of sugar, the sandwitches were tasty, and the corgies were hilarious and friendly!",
     priority: "Urgent",
     life_cycle: "In Progress",
+    project: projects.first,
     task: tasks.second,
     user: users.first
   },
@@ -124,6 +127,7 @@ subtasks = Subtask.create([
     body: "The Queen has requested that we assist in updating Big Ben to the correct time for daylight savings time.",
     priority: "None",
     life_cycle: "Assigned",
+    project: projects.first,
     task: tasks.second,
     user: users.first
   },
@@ -133,6 +137,7 @@ subtasks = Subtask.create([
     body: "While preparing to begin our mission home, the “rocks/eggs in the cargo bay began to shake and crack… Suddenly, hundreds of glowing gummy bear things came shooting out of the dusty shells and started bouncing off the walls and asking to meet our leader. The captain is now addressing the flock and will soon show them the first Minions movie as a treat.",
     priority: "None",
     life_cycle: "In Progress",
+    project: projects.second,
     task: tasks.third,
     user: users.first
   },
@@ -142,6 +147,7 @@ subtasks = Subtask.create([
     body: "These baby aliens sure know how to party, however they have been a bit of a challenge to get to bed on time!",
     priority: "High",
     life_cycle: "Ready for Review",
+    project: projects.second,
     task: tasks.third,
     user: users.first
   },
@@ -151,6 +157,7 @@ subtasks = Subtask.create([
     body: "The captain was dissapointed in the poor surf but was able to pull some excellent backflips on his dustboard.",
     priority: "Low",
     life_cycle: "Assigned",
+    project: projects.second,
     task: tasks.fourth,
     user: users.first
   },
@@ -160,6 +167,7 @@ subtasks = Subtask.create([
     body: "Our map could be wrong... but we are pretty sure the original moon landing didn't happen the way we were told...!",
     priority: "None",
     life_cycle: "In Progress",
+    project: projects.second,
     task: tasks.fourth,
     user: users.first
   },
@@ -169,6 +177,7 @@ subtasks = Subtask.create([
     body: "Our Dragon merchandise is so successful we have decided to release an entire line of fireproof clothing. Unfortunately for us, these Dragons are some real diva designers; they only respond to Ja Ja, Mugatu, and Patricia.",
     priority: "Low",
     life_cycle: "Completed",
+    project: projects.third,
     task: tasks.fifth,
     user: users.second
   }

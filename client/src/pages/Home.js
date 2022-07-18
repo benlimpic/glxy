@@ -3,12 +3,13 @@ import Project from '../components/Project'
 import ProjectSelect from '../components/ProjectSelect'
 
 
-const Home = ( {} ) => {
+const Home = () => {
 
-  const [projects, setProjects] = useState([])
   const [selectProject, setSelectProject] = useState(null)
-  const [selectTask, setSelectTask] = useState(null)
-  const [selectSubtask, setSelectSubtask] = useState(null)
+  const [project, setProject] = useState([])
+  const [projects, setProjects] = useState([])
+  const [tasks, setTasks] = useState([])
+
 
   useEffect(() => {
     fetch('/projects')
@@ -16,18 +17,26 @@ const Home = ( {} ) => {
     .then(data => setProjects(data))
   }, [])
 
+  useEffect(() => {
+    if (selectProject) {
+      fetch(`/projects/${parseInt(selectProject)}`)
+      .then(res => res.json())
+      .then(data => setProject(data))
+
+      fetch(`/tasks`)
+      .then(res => res.json())
+      .then(data => setTasks(data.filter(task => task.project_id === parseInt(selectProject))))
+
+    }}, [selectProject])
+
   return (
       <div>
         <ProjectSelect 
           projects={projects} 
           setSelectProject={setSelectProject} />
-        <Project 
-          projects={projects} 
-          selectProject={selectProject} 
-          selectTask={selectTask}
-          setSelectTask={setSelectTask}
-          selectSubtask={selectSubtask}
-          setSelectSubtask={setSelectSubtask} />
+        <Project
+          project={project} 
+          tasks={tasks} /> 
       </div>  
   )
 }

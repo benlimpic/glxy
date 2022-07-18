@@ -1,59 +1,32 @@
-import { useState, useEffect } from 'react'
-import TaskSelect from '../components/TaskSelect'
-import SubtaskSelect from '../components/SubtaskSelect'
+import React, { useState, useEffect } from "react";
 
+function Project({project, tasks}) {
 
-function Project(props) {
-  return  <div>
-            {props.projects.map((project) => project.id === parseInt(props.selectProject) ? (
-              <div key={project.id}>
+  return  <div> 
+            <div key={project.id}>
                 <h1>{project.title}</h1>
-                <ul>
-                  <li>{project.description}</li>
-                  <li>{project.body}</li>
-                  <li>{project.priority}</li>
-                  <li>{project.life_cycle}</li>
-                </ul>
-                  <TaskSelect 
-                  project={project} 
-                  selectTask={props.selectTask}
-                  setSelectTask={props.setSelectTask}
-                  />
-                  <div>
-                    {project.tasks.map((task) => task.id === parseInt(props.selectTask) ? (
-                      <div key={task.id}>
-                        <h3>{task.title}</h3>
-                        <ul>
-                          <li>{task.description}</li>
-                          <li>{task.body}</li>
-                          <li>{task.priority}</li>
-                          <li>{task.life_cycle}</li>
-                        </ul>
-                        <SubtaskSelect 
-                        project={project}
-                        selectTask={props.selectTask} 
-                        selectSubtask={props.selectSubtask}
-                        setSelectSubtask={props.setSelectSubtask}
-                        />
-                          <div>
-                          {project.subtasks.map((subtask) => subtask.id === parseInt(props.selectSubtask) ? (
+                <h5>{project.description}</h5>
+                <h5>{project.priority}</h5>
+                <h5>{project.life_cycle}</h5>
+                <p>{project.body}</p>                              
+                {tasks.map((task) =>              
+                    <div key={task.id}>
+                        <h1>{task.title}</h1>
+                        <h5>{task.description}</h5>
+                        <h5>{task.priority}</h5>
+                        <h5>{task.life_cycle}</h5>
+                        <p>{task.body}</p>  
+                        {task.subtasks.map((subtask) =>
                             <div key={subtask.id}>
-                            <h5>{subtask.title}</h5>
-                            <ul>
-                              <li>{subtask.description}</li>
-                              <li>{subtask.body}</li>
-                              <li>{subtask.priority}</li>
-                              <li>{subtask.life_cycle}</li>
-                            </ul>
-                          </div>)
-                        : null)}
-                      </div>
-                    </div>)
-                  : null)}
-                </div>
-              </div>)
-            : null)}
-          </div>
+                                <h1>{subtask.title}</h1>
+                                <h5>{subtask.description}</h5>
+                                <h5>{subtask.priority}</h5>
+                                <h5>{subtask.life_cycle}</h5>
+                                <p>{subtask.body}</p>
+                        </div>)}                            
+                </div>)}
+            </div>
+          </div>  
   }
 
 export default Project
