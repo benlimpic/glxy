@@ -11,6 +11,7 @@ const Home = () => {
   const [projects, setProjects] = useState([])
   const [tasks, setTasks] = useState([])
   const [galaxy, setGalaxy] = useState(false)
+  const [clicked, setClicked] = useState(false)
 
 
   useEffect(() => {
@@ -33,11 +34,12 @@ const Home = () => {
 
     const handleGalaxyClick = () => {
       setGalaxy(!galaxy)
+      setClicked(!clicked)
     }
 
   return (
       <div>
-        <button onClick={handleGalaxyClick}>Galaxy</button>
+        <button onClick={handleGalaxyClick}>{clicked ? "Show Text" : "Show Galaxy"}</button>
         <ProjectSelect 
           projects={projects} 
           setSelectProject={setSelectProject} />
