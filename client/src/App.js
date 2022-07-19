@@ -26,7 +26,7 @@ function App({}) {
     <div className="app">
       <NavBar user={user} setUser={setUser} />
     <main>
-        <Home path="/" element={<Home/>} />
+        <Home path="/" element={<Home/>} user={user}/>
     </main>
     </div>
 

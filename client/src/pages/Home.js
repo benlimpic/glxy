@@ -4,7 +4,7 @@ import GalaxyBuild from '../components/GalaxyBuild'
 import ProjectSelect from '../components/ProjectSelect'
 
 
-const Home = () => {
+const Home = ({user}) => {
 
   const [selectProject, setSelectProject] = useState(null)
   const [project, setProject] = useState([])
@@ -12,6 +12,7 @@ const Home = () => {
   const [tasks, setTasks] = useState([])
   const [galaxy, setGalaxy] = useState(false)
   const [clicked, setClicked] = useState(false)
+  const [selectData, setSelectData] = useState([null])
 
 
   useEffect(() => {
@@ -30,7 +31,7 @@ const Home = () => {
       .then(res => res.json())
       .then(data => setTasks(data.filter(task => task.project_id === parseInt(selectProject))))
 
-    }}, [selectProject])
+    }}, [selectProject, selectData])
 
     const handleGalaxyClick = () => {
       setGalaxy(!galaxy)
@@ -48,9 +49,12 @@ const Home = () => {
           project={project} 
           tasks={tasks}/> 
         : 
-        <Project 
+        <Project
+          user={user}
           project={project} 
-          tasks={tasks} /> }
+          tasks={tasks} 
+          selectData={selectData}
+          setSelectData={setSelectData}/> }
       </div>  
   )
 }
