@@ -64,7 +64,8 @@ const Home = ({user}) => {
         { galaxy ? 
         <GalaxyBuild 
           project={project} 
-          tasks={tasks}/> 
+          tasks={tasks}
+          subtasks={subtasks}/> 
         : 
         <Project
           project={project} 

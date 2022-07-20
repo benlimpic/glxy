@@ -47,7 +47,7 @@ tasks = Task.create([
     title: "Heading to Egypt!",
     description: "Let's try to read some hyroglyphics!",
     body: "Hmmm it looks like these symbols are a spell book for the ancient Egyptians.. maybe I shouldn't have read it outloud!",
-    priority: "High",
+    priority: "Urgent",
     life_cycle: "Edit Requested",
     project: projects.first,
     user: users.first
@@ -56,7 +56,7 @@ tasks = Task.create([
     title: "On our way to England!",
     description: "Let's explore some castles and see some landmarks!",
     body: "I would like to visit the Tower of London, the Big Ben, and the Buckingham Palace!",
-    priority: "medium",
+    priority: "Medium",
     life_cycle: "In Progress",
     project: projects.first,
     user: users.first
