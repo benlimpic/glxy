@@ -7,7 +7,7 @@ function Login({ onLogin }) {
 
   return (
     <div>
-      <h4>Task Galaxy</h4>
+      <h4>Glxy</h4>
       {showLogin ? (
         <>
           <h1>Welcome Back!</h1>

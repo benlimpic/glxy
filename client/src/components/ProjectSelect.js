@@ -12,7 +12,3 @@ function ProjectSelect(props) {
 }
 
 export default ProjectSelect
-
-
-// create TaskSelect and import it to Project
-//create SubtaskSelect and import it to Project

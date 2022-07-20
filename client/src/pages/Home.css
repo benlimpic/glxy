@@ -1,0 +1,48 @@
+.Home {
+  flex: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.galaxy {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+  margin-bottom: vh;
+  zoom: .8;
+  zindex: -1;
+  overflow: hidden;
+}
+
+.Project {
+  flex: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.spaceBox {
+  flex: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+
+.displayInfo {
+  flex: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100vw;
+}

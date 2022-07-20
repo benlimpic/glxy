@@ -1,33 +1,42 @@
+import {useState, useEffect} from 'react';
+import './GalaxyBuild.css'
+function GalaxyBuild({setSelectProject, project, tasks}) {
 
-function GalaxyBuild({project, tasks}) {
+  useEffect(() => {
+  const init = () => {
+    document.body.classList.add("view-2D")};
+  init();
+  }, [setSelectProject]);
 
-  return  <div> 
-            <div key={project.id}>
-                <h1>{project.title}</h1>
-                {/* <h5>{project.description}</h5>
-                <h5>{project.priority}</h5>
-                <h5>{project.life_cycle}</h5>
-                <p>{project.body}</p> */}
+  
+  return  <div>
+          <div className="galaxy">
+          <div id="universe" className="scale-stretched">
+          <div id="galaxy">
+              <div id="solar-system" className="earth">
 
-                {tasks.map((task) =>              
-                    <div key={task.id}>
-                        <h1>{task.title}</h1>
-                        {/* <h5>{task.description}</h5>
-                        <h5>{task.priority}</h5>
-                        <h5>{task.life_cycle}</h5>
-                        <p>{task.body}</p> */}
-                          
-                        {task.subtasks.map((subtask) =>
-                            <div key={subtask.id}>
-                                <h1>{subtask.title}</h1>
-                                {/* <h5>{subtask.description}</h5>
-                                <h5>{subtask.priority}</h5>
-                                <h5>{subtask.life_cycle}</h5>
-                                <p>{subtask.body}</p> */}
-                        </div>)}                            
-                </div>)}
-            </div>
-          </div>  
+                  <div value={project} id="sun">
+                  </div>
+
+                  {tasks.map((task, index) => 
+                    <div value={task} id={`earth-${index + 1}`} className="orbit">
+                      <div className="pos">
+                        {task.subtasks.map((data, index) =>
+                          <div value={data} className="orbit-1a">
+                            <div className="pos">
+                            <div className={`moon-${index + 1}`}></div>
+                          </div>
+                      </div>)}
+                        <div className="planet"></div>
+                      </div>
+                    </div>)}
+
+              </div>
+          </div>
+          </div>
+          </div>
+          </div>
   }
+
 
 export default GalaxyBuild
