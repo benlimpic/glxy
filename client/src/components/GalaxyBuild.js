@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useEffect} from 'react';
 import './GalaxyBuild.css'
 function GalaxyBuild({setSelectProject, project, tasks, subtasks}) {
 
@@ -10,7 +10,7 @@ function GalaxyBuild({setSelectProject, project, tasks, subtasks}) {
 
   const ABC = ["a", "b", "c", "d", "e", "f", "g", "h" ]
   
-  return  <div>
+  return  <div classname="galaxyShow">
             <div className="galaxy">
               <div id="universe" className="scale-stretched">
                 <div id="galaxy">

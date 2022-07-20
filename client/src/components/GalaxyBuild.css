@@ -5,23 +5,32 @@ body {
   font-weight: 300;
   background-color: #ffffff; }
 
-  
+.galaxyShow {
+  position: static;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  width: 100vw;
+  z-index: 0;
+  zoom: .5;}  
+
 #universe {
-  z-index: -1;
+  z-index: 0;
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 130%;
   background-color: #000000; }
 
 #galaxy {
   position: absolute;
   width: 100%;
-  height: 100%; }
+  height: 110%; 
+  zoom: .5}
 
 #solar-system {
   position: absolute;
   width: 100%;
-  height: 100%; }
+  height: 90%; }
 
 .pos {
   position: absolute;
