@@ -57,12 +57,13 @@ const Home = ({user}) => {
   return (
       <div>
         <button onClick={handleGalaxyClick}>{clicked ? "Show Text" : "Show Galaxy"}</button>
+        
         <ProjectSelect 
           projects={projects} 
           setSelectProject={setSelectProject} />
 
         { galaxy ? 
-        <GalaxyBuild 
+        <GalaxyBuild className="galaxy"
           project={project} 
           tasks={tasks}
           subtasks={subtasks}/> 

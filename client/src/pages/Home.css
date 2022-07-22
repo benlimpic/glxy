@@ -1,35 +1,25 @@
 .Home {
-  flex: auto;
+  /* flex: auto;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
-  width: 100%;
+  width: 100%; */
 }
 
-/* .Project {
+/* .galaxy {
   flex: auto;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  width: 100%;
-}
-
-.spaceBox {
-  flex: auto;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-
-.displayInfo {
-  flex: auto;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100vw;
+  margin-top: 75vh;
+  zoom: .6;
+  overflow: hidden;
 } */
+
+
+
+
+
+
