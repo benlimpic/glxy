@@ -1,14 +1,23 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
-function Project({projectSelect, project, tasks}) {
+function Project({setSelectProject, selectProject, project, tasks}) {
 
-    const [projectTitle, setProjectTitle] = useState(project.title);
-    const [projectDescription, setProjectDescription] = useState(project.description);
-    const [projectBody, setProjectBody] = useState(project.body);
-    const [projectLifeCycle, setProjectLifeCycle] = useState(project.life_cycle);
-    const [projectPriority, setProjectPriority] = useState(project.priority);
+    const [projectTitle, setProjectTitle] = useState([]);
+    const [projectDescription, setProjectDescription] = useState([]);
+    const [projectBody, setProjectBody] = useState([]);
+    const [projectLifeCycle, setProjectLifeCycle] = useState([]);
+    const [projectPriority, setProjectPriority] = useState([]);
 
-    console.log(projectSelect)
+    useEffect(() => {
+        const init = (project) => {
+            setProjectTitle(project.title);
+            setProjectDescription(project.description);
+            setProjectBody(project.body);
+            setProjectLifeCycle(project.life_cycle);
+            setProjectPriority(project.priority);
+        }
+        init(project);
+    }, [setSelectProject, project])
 
     const handleProjectSubmit = (e) => {
         e.preventDefault();
@@ -31,7 +40,7 @@ function Project({projectSelect, project, tasks}) {
 
     return  <div>
 
-            {projectSelect === null || projectSelect === "0" ?
+            {selectProject === null || selectProject === "0" ?
             <div> 
                 <h1>Select A Project</h1>
             </div>

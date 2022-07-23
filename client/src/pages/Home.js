@@ -14,6 +14,7 @@ const Home = ({user}) => {
   const [subtasks, setSubtasks] = useState([])
   const [galaxy, setGalaxy] = useState(false)
   const [clicked, setClicked] = useState(false)
+  
 
 
 //-------------------------------------------------------
@@ -66,7 +67,8 @@ const Home = ({user}) => {
           subtasks={subtasks}/> 
         : 
         <Project
-        projectSelect={selectProject}
+          setSelectProject={setSelectProject}
+          selectProject={selectProject}
           project={project} 
           tasks={tasks} /> }
       </div>  
