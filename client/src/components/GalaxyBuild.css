@@ -629,6 +629,7 @@ body {
 
 /* #------------- responsive styles --------------*/
 
+/* device sizing */
 
 @media screen and (min-width: 200px) {
   #solar-system {

@@ -69,6 +69,7 @@ const Home = ({user}) => {
           subtasks={subtasks}/> 
         : 
         <Project
+          projectSelect={selectProject}
           project={project} 
           tasks={tasks} /> }
       </div>  
