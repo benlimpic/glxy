@@ -1,8 +1,33 @@
-import React from "react";
+import React, {useState} from "react";
 
 function Project({projectSelect, project, tasks}) {
 
+    const [projectTitle, setProjectTitle] = useState(project.title);
+    const [projectDescription, setProjectDescription] = useState(project.description);
+    const [projectBody, setProjectBody] = useState(project.body);
+    const [projectLifeCycle, setProjectLifeCycle] = useState(project.life_cycle);
+    const [projectPriority, setProjectPriority] = useState(project.priority);
+
     console.log(projectSelect)
+
+    const handleProjectSubmit = (e) => {
+        e.preventDefault();
+        fetch(`/projects/${project.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                title: projectTitle,
+                description: projectDescription,
+                body: projectBody,
+                life_cycle: projectLifeCycle,
+                priority: projectPriority
+            })
+        })
+        console.log("submit")
+    }
 
     return  <div>
 
@@ -10,45 +35,52 @@ function Project({projectSelect, project, tasks}) {
             <div> 
                 <h1>Select A Project</h1>
             </div>
-            :            
-            <div key={project.id}>
+            :  
             <div>
-                <label htmlFor="title">Title:</label>
-                <input type="text" required id="title" autoComplete="off" value={project.title}  />
+                <h1>Project</h1>          
+            <form key={project.id} onSubmit={handleProjectSubmit}>
+            <div>
+                <label>Title:</label>
+                <input type="text" value={projectTitle} required 
+                onChange={(e) => setProjectTitle(e.target.value)}/>
             </div>
 
             <div>
-                <label htmlFor="description">Description:</label>
-                <textarea rows="3" type="text"  id="title" autoComplete="off" value={project.description} />
+                <label>Description:</label>
+                <textarea rows="5" type="text" value={projectDescription} 
+                onChange={(e) => setProjectDescription(e.target.value)}/>
             </div>
 
             <div>
-                <label htmlFor="Notes">Notes:</label>
-                <textarea rows="3" type="text"  id="title" autoComplete="off" value={project.body}/>
+                <label>Notes:</label>
+                <textarea rows="10" type="text" value={projectBody} required 
+                onChange={(e) => setProjectBody(e.target.value)}/>
             </div>
 
             <div>
-                <label htmlFor="status">Status:</label>
-                <select value={project.life_cycle} >
+                <label>Status:</label>
+                <select value={projectLifeCycle} 
+                onChange={(e) => setProjectLifeCycle(e.target.value)}>
                     <option value="">{project.life_cycle}</option>
 
                 </select>
             </div>
 
             <div>
-                <label htmlFor="priority">Priority:</label>
-                <select value={project.priority}>
+                <label>Priority:</label>
+                <select value={projectPriority}
+                onChange={(e) => setProjectPriority(e.target.value)}>
                     <option value="">{project.priority}</option>
 
                 </select>
             </div>
 
             <div>
-                <button>Update</button>
+                <input type="submit" value="Update" />
                 <button>Delete</button>
             </div>
 
-                <div>
+                {/* <div>
                 {tasks.slice(0).reverse().map((task, index) =>              
                 <div key={task.id}>
 
@@ -56,17 +88,17 @@ function Project({projectSelect, project, tasks}) {
 
                 <div>
                     <label htmlFor="title">Title:</label>
-                    <input type="text" required id="title" autoComplete="off" value={task.title}  />
+                    <input type="text" required value={task.title}  />
                 </div>
 
                 <div>
                     <label htmlFor="description">Description:</label>
-                    <textarea rows="3" type="text"  id="title" autoComplete="off" value={task.description} />
+                    <textarea rows="3" type="text"  value={task.description} />
                 </div>
 
                 <div>
                     <label htmlFor="Notes">Notes:</label>
-                    <textarea rows="3" type="text"  id="title" autoComplete="off" value={task.body}/>
+                    <textarea rows="3" type="text"  value={task.body}/>
                 </div>
 
                 <div>
@@ -98,17 +130,17 @@ function Project({projectSelect, project, tasks}) {
 
                     <div>
                         <label htmlFor="title">Title:</label>
-                        <input type="text" required id="title" autoComplete="off" value={subtask.title}  />
+                        <input type="text" required value={subtask.title}  />
                     </div>
 
                     <div>
                         <label htmlFor="description">Description:</label>
-                        <textarea rows="3" type="text"  id="title" autoComplete="off" value={subtask.description} />
+                        <textarea rows="3" type="text"  value={subtask.description} />
                     </div>
 
                     <div>
                         <label htmlFor="Notes">Notes:</label>
-                        <textarea rows="3" type="text"  id="title" autoComplete="off" value={subtask.body}/>
+                        <textarea rows="3" type="text"  value={subtask.body}/>
                     </div>
 
                     <div>
@@ -134,7 +166,8 @@ function Project({projectSelect, project, tasks}) {
                     </div>)}
                     </div>
                 </div>)}
-                </div>
+                </div> */}
+                </form>
                 </div>}
             </div>}
 

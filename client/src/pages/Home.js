@@ -25,25 +25,22 @@ const Home = ({user}) => {
   }, [])
 
   useEffect(() => {
-    if (selectProject) {
       fetch(`/projects/${parseInt(selectProject)}`)
       .then(res => res.json())
       .then(data => setProject(data))
-    }}, [selectProject])
+    }, [selectProject])
 
   useEffect(() => {
-    if (selectProject) {
       fetch('/tasks')
       .then(res => res.json())
       .then(data => setTasks(data.filter(task => task.project_id === parseInt(selectProject))))
-    }}, [selectProject])
+    }, [selectProject])
 
   useEffect(() => {
-    if (selectProject) {
       fetch('/subtasks')
       .then(res => res.json())
       .then(data => setSubtasks(data.filter(subtask => subtask.project_id === parseInt(selectProject))))
-    }}, [selectProject])
+    }, [selectProject])
 
 //-------------------------------------------------------
 
@@ -69,7 +66,7 @@ const Home = ({user}) => {
           subtasks={subtasks}/> 
         : 
         <Project
-          projectSelect={selectProject}
+        projectSelect={selectProject}
           project={project} 
           tasks={tasks} /> }
       </div>  
