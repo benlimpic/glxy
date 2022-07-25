@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
+import {Link} from "react-router-dom";
+import './Project.css'
 
-function Project({setSelectProject, selectProject, project, tasks}) {
+function Project({setEditProject, setSelectProject, selectProject, project, tasks}) {
 
     const [projectTitle, setProjectTitle] = useState([]);
     const [projectDescription, setProjectDescription] = useState([]);
@@ -19,165 +21,85 @@ function Project({setSelectProject, selectProject, project, tasks}) {
         init(project);
     }, [setSelectProject, project])
 
-    const handleProjectSubmit = (e) => {
-        e.preventDefault();
-        fetch(`/projects/${project.id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({
-                title: projectTitle,
-                description: projectDescription,
-                body: projectBody,
-                life_cycle: projectLifeCycle,
-                priority: projectPriority
-            })
-        })
-        console.log("submit")
+    const handleProjectEdit = () => {
+        setEditProject(project)
     }
 
+    const handleDeleteProject = () => {
+        fetch(`/projects/${project.id}`, {
+            method: "DELETE"
+        })
+        setSelectProject(null)
+    }
+
+
+
     return  <div>
-
-            {selectProject === null || selectProject === "0" ?
-            <div> 
-                <h1>Select A Project</h1>
-            </div>
-            :  
-            <div>
-                <h1>Project</h1>          
-            <form key={project.id} onSubmit={handleProjectSubmit}>
-            <div>
-                <label>Title:</label>
-                <input type="text" value={projectTitle} required 
-                onChange={(e) => setProjectTitle(e.target.value)}/>
-            </div>
-
-            <div>
-                <label>Description:</label>
-                <textarea rows="5" type="text" value={projectDescription} 
-                onChange={(e) => setProjectDescription(e.target.value)}/>
-            </div>
-
-            <div>
-                <label>Notes:</label>
-                <textarea rows="10" type="text" value={projectBody} required 
-                onChange={(e) => setProjectBody(e.target.value)}/>
-            </div>
-
-            <div>
-                <label>Status:</label>
-                <select value={projectLifeCycle} 
-                onChange={(e) => setProjectLifeCycle(e.target.value)}>
-                    <option value="">{project.life_cycle}</option>
-
-                </select>
-            </div>
-
-            <div>
-                <label>Priority:</label>
-                <select value={projectPriority}
-                onChange={(e) => setProjectPriority(e.target.value)}>
-                    <option value="">{project.priority}</option>
-
-                </select>
-            </div>
-
-            <div>
-                <input type="submit" value="Update" />
-                <button>Delete</button>
-            </div>
-
-                {/* <div>
-                {tasks.slice(0).reverse().map((task, index) =>              
-                <div key={task.id}>
-
-                <h1>Tasks #{index += 1}</h1>
-
-                <div>
-                    <label htmlFor="title">Title:</label>
-                    <input type="text" required value={task.title}  />
+                {selectProject === null || selectProject === "0" ?
+                <div> 
+                    <h1>Select A Project</h1>
                 </div>
-
+                : 
                 <div>
-                    <label htmlFor="description">Description:</label>
-                    <textarea rows="3" type="text"  value={task.description} />
+                    <div className="dropdown">
+                    <h2>{project.title}</h2>
+
+                    <div className="dropdown-content">
+                        <h3>{project.title}</h3>
+                        <h5>{project.description}</h5>
+                        <p>{project.body}</p>
+                        <h5>{project.life_cycle}</h5>
+                        <h5>{project.priority}</h5>
+                        <Link to="/editProject">
+                            <button onClick={handleProjectEdit}> edit </button>
+                        </Link>
+                        <Link to="/">
+                            <button onClick={handleDeleteProject}> delete </button>
+                        </Link>
+                            <button> add task </button>
+                    </div>
                 </div>
-
-                <div>
-                    <label htmlFor="Notes">Notes:</label>
-                    <textarea rows="3" type="text"  value={task.body}/>
-                </div>
-
-                <div>
-                    <label htmlFor="status">Status:</label>
-                    <select value={task.life_cycle} >
-                        <option value="">{task.life_cycle}</option>
-
-                    </select>
-                </div>
-
-                <div>
-                    <label htmlFor="priority">Priority:</label>
-                    <select value={task.priority}>
-                        <option value="">{task.priority}</option>
-
-                    </select>
-                </div>
-
-                <div>
-                    <button>Update</button>
-                    <button>Delete</button>
-                </div>
-        
                     <div>
-                    {task.subtasks.slice(0).reverse().map((subtask, index) =>             
-                    <div key={subtask.id}>
+                        {tasks.slice(0).reverse().map((task) =>              
+                            <div key={task.id}>
+                                <div className="dropdown">
+                                    <h3>{task.title}</h3>
 
-                    <h1>Sub-Task #{index += 1}</h1>
+                                    <div className="dropdown-content">
+                                        <h3>{task.title}</h3>
+                                        <h5>{task.description}</h5>
+                                        <p>{task.body}</p>
+                                        <h5>{task.life_cycle}</h5>
+                                        <h5>{task.priority}</h5>
+                                        <button> edit </button>
+                                        <button> delete </button>
+                                        <button> add sub </button>
+                                    </div>
+                                </div>
+                            <div>
+                                <div>
+                                {task.subtasks.slice(0).reverse().map((subtask) =>
+                                    <div key={subtask.id}>    
+                                        <div className="dropdown">
+                                            <h4>{subtask.title}</h4>
 
-                    <div>
-                        <label htmlFor="title">Title:</label>
-                        <input type="text" required value={subtask.title}  />
+                                            <div className="dropdown-content">
+                                                <h3>{subtask.title}</h3>
+                                                <h5>{subtask.description}</h5>
+                                                <p>{subtask.body}</p>
+                                                <h5>{subtask.life_cycle}</h5>
+                                                <h5>{subtask.priority}</h5>
+                                                <button> edit </button>
+                                                <button> delete </button>
+                                            </div>
+                                        </div>
+                                    </div>)}
+                                </div>
+                            </div>
+                        </div>)}
                     </div>
-
-                    <div>
-                        <label htmlFor="description">Description:</label>
-                        <textarea rows="3" type="text"  value={subtask.description} />
-                    </div>
-
-                    <div>
-                        <label htmlFor="Notes">Notes:</label>
-                        <textarea rows="3" type="text"  value={subtask.body}/>
-                    </div>
-
-                    <div>
-                        <label htmlFor="status">Status:</label>
-                        <select value={subtask.life_cycle} >
-                            <option value="">{subtask.life_cycle}</option>
-
-                        </select>
-                    </div>
-
-                    <div>
-                        <label htmlFor="priority">Priority:</label>
-                        <select value={subtask.priority}>
-                            <option value="">{subtask.priority}</option>
-
-                        </select>
-                    </div>
-
-                    <div>
-                        <button>Update</button>
-                        <button>Delete</button>
-                    </div>
-                    </div>)}
-                    </div>
-                </div>)}
-                </div> */}
-                </form>
                 </div>}
-            </div>}
+            </div>
+}       
 
 export default Project

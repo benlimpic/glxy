@@ -5,16 +5,10 @@ import GalaxyBuild from '../components/GalaxyBuild'
 import ProjectSelect from '../components/ProjectSelect'
 
 
-const Home = ({user}) => {
+const Home = ({user, selectProject, setSelectProject, setProject, project, setProjects, projects, setTasks, tasks, setSubtasks, subtasks, setEditProject}) => {
 
-  const [selectProject, setSelectProject] = useState(null)
-  const [project, setProject] = useState([])
-  const [projects, setProjects] = useState([])
-  const [tasks, setTasks] = useState([])
-  const [subtasks, setSubtasks] = useState([])
   const [galaxy, setGalaxy] = useState(false)
   const [clicked, setClicked] = useState(false)
-  
 
 
 //-------------------------------------------------------
@@ -23,25 +17,25 @@ const Home = ({user}) => {
     fetch('/projects')
     .then(res => res.json())
     .then(data => setProjects(data))
-  }, [])
+  }, [selectProject, setProjects])
 
   useEffect(() => {
       fetch(`/projects/${parseInt(selectProject)}`)
       .then(res => res.json())
       .then(data => setProject(data))
-    }, [selectProject])
+    }, [selectProject, setProject])
 
   useEffect(() => {
       fetch('/tasks')
       .then(res => res.json())
       .then(data => setTasks(data.filter(task => task.project_id === parseInt(selectProject))))
-    }, [selectProject])
+    }, [selectProject, setTasks])
 
   useEffect(() => {
       fetch('/subtasks')
       .then(res => res.json())
       .then(data => setSubtasks(data.filter(subtask => subtask.project_id === parseInt(selectProject))))
-    }, [selectProject])
+    }, [selectProject, setSubtasks])
 
 //-------------------------------------------------------
 
@@ -69,6 +63,7 @@ const Home = ({user}) => {
         <Project
           setSelectProject={setSelectProject}
           selectProject={selectProject}
+          setEditProject={setEditProject}
           project={project} 
           tasks={tasks} /> }
       </div>  
