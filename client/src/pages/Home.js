@@ -6,7 +6,7 @@ import ProjectOptions from '../components/ProjectOptions'
 
 
 
-const Home = ({ user, selectProject, setSelectProject, setEditProject}) => {
+const Home = ({ user, selectProject, setSelectProject, setEditProject, editProject}) => {
 
   const [galaxy, setGalaxy] = useState(false)
   const [clicked, setClicked] = useState(false)
@@ -23,7 +23,7 @@ const Home = ({ user, selectProject, setSelectProject, setEditProject}) => {
     fetch('/projects')
     .then(res => res.json())
     .then(data => setProjects(data.filter(project => project.user_id === user.id)))
-  }, [])
+  }, [user.id])
 
   useEffect(() => {
       fetch(`/projects/${parseInt(selectProject)}`)
@@ -64,7 +64,9 @@ const Home = ({ user, selectProject, setSelectProject, setEditProject}) => {
           setSelectProject={setSelectProject}
           selectProject={selectProject}
           setEditProject={setEditProject}
-          project={project} 
+          editProject={editProject}
+          project={project}
+          setProject={setProject} 
           tasks={tasks} /> }
       </div>  
   )

@@ -2,15 +2,13 @@ import React from "react";
 import {Link} from "react-router-dom";
 import './Project.css'
 
-function Project({setEditProject, setSelectProject, selectProject, project, tasks}) {
-
+function Project({setEditProject, selectProject, project, tasks}) {
 
 
     const handleDeleteProject = () => {
         fetch(`/projects/${project.id}`, {
             method: "DELETE"
         })
-        setSelectProject(null)
     }
 
     return  <div>
@@ -21,6 +19,7 @@ function Project({setEditProject, setSelectProject, selectProject, project, task
                 : 
                 <div>
                     <div className="dropdown">
+                    
                     <h2>{project.title}</h2>
 
                     <div className="dropdown-content">
@@ -29,8 +28,9 @@ function Project({setEditProject, setSelectProject, selectProject, project, task
                         <p>{project.body}</p>
                         <h5>{project.life_cycle}</h5>
                         <h5>{project.priority}</h5>
+
                         <Link to="/editProject">
-                            <button value={project} onClick={setEditProject}> edit </button>
+                            <button onClick={setEditProject(project)}>Edit Project</button>
                         </Link>
                         <Link to="/">
                             <button onClick={handleDeleteProject}> delete </button>

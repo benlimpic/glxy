@@ -3,7 +3,7 @@ import { Routes, Route} from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
-import EditProject from "./components/EditProject";
+import UpdateProject from "./components/UpdateProject";
 import CreateProject from "./components/CreateProject";
 
 function App() {
@@ -15,12 +15,6 @@ function App() {
   const handleSelectProject = (e) => {
     setSelectProject(e.target.value)
   }
-  
-  const handleSetProjectEdit = (e) => {
-    setEditProject(e.target.value)
-  }
-
-
 
   useEffect(() => {
     // auto-login
@@ -43,20 +37,21 @@ function App() {
         <Route path="/" element={
                   <Home 
                     user={user}
-                    setEditProject={handleSetProjectEdit}
                     setSelectProject={handleSelectProject}
+                    setEditProject={setEditProject}
+                    editProject={editProject}
                     selectProject={selectProject} />}
                   />
-        <Route path="/editProject" element={
-                  <EditProject 
-                    setSelectProject={handleSelectProject}
-                    editProject={editProject} />}
-                  />
+
         <Route path="/newProject" element={
                   <CreateProject
                     user={user} 
                     setSelectProject={setSelectProject} />}
                   />
+        <Route path={`/editProject`} element={
+                  <UpdateProject
+                    user={user}
+                    editProject={editProject}/>} />
       </Routes>
     </main>
     </div>
