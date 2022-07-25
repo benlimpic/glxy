@@ -1,29 +1,10 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import {Link} from "react-router-dom";
 import './Project.css'
 
 function Project({setEditProject, setSelectProject, selectProject, project, tasks}) {
 
-    const [projectTitle, setProjectTitle] = useState([]);
-    const [projectDescription, setProjectDescription] = useState([]);
-    const [projectBody, setProjectBody] = useState([]);
-    const [projectLifeCycle, setProjectLifeCycle] = useState([]);
-    const [projectPriority, setProjectPriority] = useState([]);
 
-    useEffect(() => {
-        const init = (project) => {
-            setProjectTitle(project.title);
-            setProjectDescription(project.description);
-            setProjectBody(project.body);
-            setProjectLifeCycle(project.life_cycle);
-            setProjectPriority(project.priority);
-        }
-        init(project);
-    }, [setSelectProject, project])
-
-    const handleProjectEdit = () => {
-        setEditProject(project)
-    }
 
     const handleDeleteProject = () => {
         fetch(`/projects/${project.id}`, {
@@ -31,8 +12,6 @@ function Project({setEditProject, setSelectProject, selectProject, project, task
         })
         setSelectProject(null)
     }
-
-
 
     return  <div>
                 {selectProject === null || selectProject === "0" ?
@@ -51,7 +30,7 @@ function Project({setEditProject, setSelectProject, selectProject, project, task
                         <h5>{project.life_cycle}</h5>
                         <h5>{project.priority}</h5>
                         <Link to="/editProject">
-                            <button onClick={handleProjectEdit}> edit </button>
+                            <button value={project} onClick={setEditProject}> edit </button>
                         </Link>
                         <Link to="/">
                             <button onClick={handleDeleteProject}> delete </button>

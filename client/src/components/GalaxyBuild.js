@@ -10,7 +10,7 @@ function GalaxyBuild({setSelectProject, project, tasks, subtasks}) {
 
   const ABC = ["a", "b", "c", "d", "e", "f", "g", "h" ]
   
-  return  <div classname="galaxyShow">
+  return  <div className="galaxyShow">
             <div className="galaxy">
               <div id="universe" className="scale-stretched">
                 <div id="galaxy">

@@ -1,23 +1,29 @@
-import { useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import './Home.css'
 import Project from '../components/Project'
 import GalaxyBuild from '../components/GalaxyBuild'
-import ProjectSelect from '../components/ProjectSelect'
+import ProjectOptions from '../components/ProjectOptions'
 
 
-const Home = ({user, selectProject, setSelectProject, setProject, project, setProjects, projects, setTasks, tasks, setSubtasks, subtasks, setEditProject}) => {
+
+const Home = ({ user, selectProject, setSelectProject, setEditProject}) => {
 
   const [galaxy, setGalaxy] = useState(false)
   const [clicked, setClicked] = useState(false)
 
+  const [projects, setProjects] = useState([])
+  const [project, setProject] = useState([])
+  const [tasks, setTasks] = useState([])
+
+  
 
 //-------------------------------------------------------
 
   useEffect(() => {
     fetch('/projects')
     .then(res => res.json())
-    .then(data => setProjects(data))
-  }, [selectProject, setProjects])
+    .then(data => setProjects(data.filter(project => project.user_id === user.id)))
+  }, [])
 
   useEffect(() => {
       fetch(`/projects/${parseInt(selectProject)}`)
@@ -30,12 +36,6 @@ const Home = ({user, selectProject, setSelectProject, setProject, project, setPr
       .then(res => res.json())
       .then(data => setTasks(data.filter(task => task.project_id === parseInt(selectProject))))
     }, [selectProject, setTasks])
-
-  useEffect(() => {
-      fetch('/subtasks')
-      .then(res => res.json())
-      .then(data => setSubtasks(data.filter(subtask => subtask.project_id === parseInt(selectProject))))
-    }, [selectProject, setSubtasks])
 
 //-------------------------------------------------------
 
@@ -50,15 +50,15 @@ const Home = ({user, selectProject, setSelectProject, setProject, project, setPr
       <div>
         <button onClick={handleGalaxyClick}>{clicked ? "Show Text" : "Show Galaxy"}</button>
         
-        <ProjectSelect 
-          projects={projects} 
-          setSelectProject={setSelectProject} />
-
+        <ProjectOptions
+          projects={projects}
+          selectProject={selectProject}
+          setSelectProject={setSelectProject}
+        />
         { galaxy ? 
         <GalaxyBuild className="galaxy"
           project={project} 
-          tasks={tasks}
-          subtasks={subtasks}/> 
+          tasks={tasks} /> 
         : 
         <Project
           setSelectProject={setSelectProject}

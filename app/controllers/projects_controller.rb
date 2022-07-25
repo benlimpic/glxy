@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
     if @project.save
       render json: @project, status: :created, location: @project
     else
-      render json: @project.errors, status: :unprocessable_entity
+      render json: @project.errors.full_messages, status: :unprocessable_entity
     end
   end
 
@@ -29,7 +29,7 @@ class ProjectsController < ApplicationController
     if @project.update(project_params)
       render json: @project
     else
-      render json: @project.errors, status: :unprocessable_entity
+      render json: @project.errors.full_messages, status: :unprocessable_entity
     end
   end
 
@@ -46,6 +46,6 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:title, :description, :body, :priority, :life_cycle, :user_id)
+      params.require(:project).permit(:title, :description, :body, :life_cycle, :priority, :user_id)
     end
 end
