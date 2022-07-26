@@ -1,17 +1,17 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 
-function UpdateProject(props) {
+function UpdateTask(props) {
   
-  const [title, setTitle] = useState([props.editProject.title])
-  const [description, setDescription] = useState([props.editProject.description])
-  const [body, setBody] = useState([props.editProject.body])
-  const [lifeCycle, setLifeCycle] = useState([props.editProject.life_cycle])
-  const [priority, setPriority] = useState([props.editProject.priority])
+  const [title, setTitle] = useState([props.editTask.title])
+  const [description, setDescription] = useState([props.editTask.description])
+  const [body, setBody] = useState([props.editTask.body])
+  const [lifeCycle, setLifeCycle] = useState([props.editTask.life_cycle])
+  const [priority, setPriority] = useState([props.editTask.priority])
 
-  const handleSubmitProject = (e) => {
+  const handleSubmitTask = (e) => {
     e.preventDefault();
-    fetch(`/projects/${props.editProject.id}`, {
+    fetch(`tasks/${props.editTask.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -23,15 +23,16 @@ function UpdateProject(props) {
         body: body,
         life_cycle: lifeCycle,
         priority: priority,
-        user_id: props.editProject.user_id
+        project_id: props.editTask.project_id,
+        user_id: props.editTask.user_id
       })
     })
   }
 
   return (
     <div>
-      <h3>update project</h3>
-      <form onSubmit={handleSubmitProject}>
+      <h3>update task</h3>
+      <form onSubmit={handleSubmitTask}>
         <div>
           <label>Title:</label>
           <input type="text" value={title} required
@@ -81,4 +82,4 @@ function UpdateProject(props) {
   )
 }
 
-export default UpdateProject
+export default UpdateTask

@@ -5,7 +5,10 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import CreateProject from "./components/CreateProject";
 import CreateTask from "./components/CreateTask";
+import CreateSubtask from "./components/CreateSubtask";
 import UpdateProject from "./components/UpdateProject";
+import UpdateTask from "./components/UpdateTask";
+import UpdateSubtask from "./components/UpdateSubtask";
 
 function App() {
 
@@ -13,6 +16,11 @@ function App() {
   const [selectProject, setSelectProject] = useState(null)
   const [editProject, setEditProject] = useState(null)
   const [taskProject, setTaskProject] = useState(null)
+
+  const [editTask, setEditTask] = useState(null)
+  const [subtaskTask, setSubtaskTask] = useState(null)
+
+  const [editSubtask, setEditSubtask] = useState(null)
 
   const handleSelectProject = (e) => {
     setSelectProject(e.target.value)
@@ -43,7 +51,11 @@ function App() {
                     setEditProject={setEditProject}
                     editProject={editProject}
                     selectProject={selectProject} 
-                    setTaskProject={setTaskProject}/>}
+                    setTaskProject={setTaskProject}
+                    setEditTask={setEditTask}
+                    editTask={editTask}
+                    setSubtaskTask={setSubtaskTask}
+                    setEditSubtask={setEditSubtask} />}
                   />
 
         <Route path="/newProject" element={
@@ -58,10 +70,27 @@ function App() {
                     taskProject={taskProject} />}
                   />
 
-        <Route path={`/editProject`} element={
+        <Route path="/newSubtask" element={
+                  <CreateSubtask
+                    user={user} 
+                    subtaskTask={subtaskTask} />}
+                  />
+
+        <Route path="/editProject" element={
                   <UpdateProject
                     user={user}
                     editProject={editProject}/>} />
+        
+        <Route path="/editTask" element={
+                  <UpdateTask
+                    user={user}
+                    editTask={editTask}/>} />
+        
+        <Route path="/editSubtask" element={
+                  <UpdateSubtask
+                    user={user}
+                    editSubtask={editSubtask}/>} />
+                  
       </Routes>
     </main>
     </div>

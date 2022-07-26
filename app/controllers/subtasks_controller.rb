@@ -20,7 +20,7 @@ class SubtasksController < ApplicationController
     if @subtask.save
       render json: @subtask, status: :created, location: @subtask
     else
-      render json: @subtask.errors, status: :unprocessable_entity
+      render json: @subtask.errors.full_messages, status: :unprocessable_entity
     end
   end
 
@@ -29,7 +29,7 @@ class SubtasksController < ApplicationController
     if @subtask.update(subtask_params)
       render json: @subtask
     else
-      render json: @subtask.errors, status: :unprocessable_entity
+      render json: @subtask.errors.full_messages, status: :unprocessable_entity
     end
   end
 
