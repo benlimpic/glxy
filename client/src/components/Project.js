@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import './Project.css'
 
-function Project({setEditProject, selectProject, project, tasks}) {
+function Project({setTaskProject, setEditProject, selectProject, project, tasks }) {
 
 
     const handleDeleteProject = () => {
@@ -35,7 +35,10 @@ function Project({setEditProject, selectProject, project, tasks}) {
                         <Link to="/">
                             <button onClick={handleDeleteProject}> delete </button>
                         </Link>
-                            <button> add task </button>
+                        <Link to="/newTask">
+                            <button onClick={setTaskProject(project)}> add task </button>
+                        </Link>
+                            
                     </div>
                 </div>
                     <div>

@@ -3,14 +3,16 @@ import { Routes, Route} from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
-import UpdateProject from "./components/UpdateProject";
 import CreateProject from "./components/CreateProject";
+import CreateTask from "./components/CreateTask";
+import UpdateProject from "./components/UpdateProject";
 
 function App() {
 
   const [user, setUser] = useState(null);
   const [selectProject, setSelectProject] = useState(null)
   const [editProject, setEditProject] = useState(null)
+  const [taskProject, setTaskProject] = useState(null)
 
   const handleSelectProject = (e) => {
     setSelectProject(e.target.value)
@@ -40,7 +42,8 @@ function App() {
                     setSelectProject={handleSelectProject}
                     setEditProject={setEditProject}
                     editProject={editProject}
-                    selectProject={selectProject} />}
+                    selectProject={selectProject} 
+                    setTaskProject={setTaskProject}/>}
                   />
 
         <Route path="/newProject" element={
@@ -48,6 +51,13 @@ function App() {
                     user={user} 
                     setSelectProject={setSelectProject} />}
                   />
+
+        <Route path="/newTask" element={
+                  <CreateTask
+                    user={user} 
+                    taskProject={taskProject} />}
+                  />
+
         <Route path={`/editProject`} element={
                   <UpdateProject
                     user={user}

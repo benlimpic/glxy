@@ -20,7 +20,7 @@ class TasksController < ApplicationController
     if @task.save
       render json: @task, status: :created, location: @task
     else
-      render json: @task.errors, status: :unprocessable_entity
+      render json: @task.errors.full_messages, status: :unprocessable_entity
     end
   end
 

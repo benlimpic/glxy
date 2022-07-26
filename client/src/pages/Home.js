@@ -6,7 +6,7 @@ import ProjectOptions from '../components/ProjectOptions'
 
 
 
-const Home = ({ user, selectProject, setSelectProject, setEditProject, editProject}) => {
+const Home = ({ user, setTaskProject, selectProject, setSelectProject, setEditProject, editProject}) => {
 
   const [galaxy, setGalaxy] = useState(false)
   const [clicked, setClicked] = useState(false)
@@ -67,7 +67,8 @@ const Home = ({ user, selectProject, setSelectProject, setEditProject, editProje
           editProject={editProject}
           project={project}
           setProject={setProject} 
-          tasks={tasks} /> }
+          tasks={tasks} 
+          setTaskProject={setTaskProject}/> }
       </div>  
   )
 }
