@@ -1,17 +1,36 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 
 function UpdateSubtask(props) {
   
-  const [title, setTitle] = useState([props.editSubtask.title])
-  const [description, setDescription] = useState([props.editSubtask.description])
-  const [body, setBody] = useState([props.editSubtask.body])
-  const [lifeCycle, setLifeCycle] = useState([props.editSubtask.life_cycle])
-  const [priority, setPriority] = useState([props.editSubtask.priority])
+  const [subtask, setSubtask] = useState([])
+  const [title, setTitle] = useState([])
+  const [description, setDescription] = useState([])
+  const [body, setBody] = useState([])
+  const [lifeCycle, setLifeCycle] = useState([])
+  const [priority, setPriority] = useState([])
+
+  const getEditSubtask = () => {
+    fetch(`/subtasks/${props.editSubtask}`)
+    .then(r => r.json())
+    .then(data => {
+      setSubtask(data)
+      setTitle(data.title)
+      setDescription(data.description)
+      setBody(data.body)
+      setLifeCycle(data.life_cycle)
+      setPriority(data.priority)
+    })
+  }
+  
+  useEffect(() => {
+    getEditSubtask()
+  }, [])
+
 
   const handleSubmitSubtask = (e) => {
     e.preventDefault();
-    fetch(`subtasks/${props.editSubtask.id}`, {
+    fetch(`subtasks/${subtask.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -23,10 +42,21 @@ function UpdateSubtask(props) {
         body: body,
         life_cycle: lifeCycle,
         priority: priority,
-        task_id: props.editSubtask.task_id,
-        project_id: props.editSubtask.project_id,
-        user_id:  props.editSubtask.user_id
+        task_id: subtask.task_id,
+        project_id: subtask.project_id,
+        user_id: subtask.user_id
       })
+    })
+  }
+
+  const handleDeleteSubtask = (e) => {
+    e.preventDefault();
+    fetch(`subtasks/${subtask.id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      }
     })
   }
 
@@ -75,6 +105,8 @@ function UpdateSubtask(props) {
         </div>
         <button type="submit">Update</button>
       
+        <button onClick={handleDeleteSubtask}>Delete</button>
+
         <Link to="/">
           <button> cancel </button>
         </Link>

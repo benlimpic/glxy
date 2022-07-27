@@ -1,13 +1,28 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 
 function CreateProject(props) {
 
+    const [task, setTask] = useState([])
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [body, setBody] = useState('');
     const [lifeCycle, setLifeCycle] = useState('');
     const [priority, setPriority] = useState('');
+
+    const getTask = () => {
+        fetch(`/tasks/${props.editTask}`)
+        .then(r => r.json())
+        .then(data => {
+            setTask(data)
+        }
+        )
+    }
+
+    useEffect(() => {
+        getTask()
+    }
+    , [])
 
 
     const handleSubmitSubtask = (e) => {
@@ -24,9 +39,9 @@ function CreateProject(props) {
             body: body,
             life_cycle: lifeCycle,
             priority: priority,
-            task_id: props.subtaskTask.id,
-            project_id: props.subtaskTask.project_id,
-            user_id: props.user.id
+            task_id: task.id,
+            project_id: task.project_id,
+            user_id: task.user_id
         })
     })
     }

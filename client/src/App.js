@@ -15,16 +15,14 @@ function App() {
   const [user, setUser] = useState(null);
   const [selectProject, setSelectProject] = useState(null)
   const [editProject, setEditProject] = useState(null)
-  const [taskProject, setTaskProject] = useState(null)
-
   const [editTask, setEditTask] = useState(null)
-  const [subtaskTask, setSubtaskTask] = useState(null)
-
   const [editSubtask, setEditSubtask] = useState(null)
 
   const handleSelectProject = (e) => {
     setSelectProject(e.target.value)
   }
+
+  console.log(editTask)
 
   useEffect(() => {
     // auto-login
@@ -49,13 +47,12 @@ function App() {
                     user={user}
                     setSelectProject={handleSelectProject}
                     setEditProject={setEditProject}
-                    editProject={editProject}
-                    selectProject={selectProject} 
-                    setTaskProject={setTaskProject}
                     setEditTask={setEditTask}
+                    setEditSubtask={setEditSubtask} 
+                    selectProject={selectProject} 
+                    editProject={editProject}
                     editTask={editTask}
-                    setSubtaskTask={setSubtaskTask}
-                    setEditSubtask={setEditSubtask} />}
+                    />}
                   />
 
         <Route path="/newProject" element={
@@ -67,14 +64,14 @@ function App() {
         <Route path="/newTask" element={
                   <CreateTask
                     user={user} 
-                    taskProject={taskProject} />}
-                  />
+                    editProject={editProject}
+                  />} />
 
         <Route path="/newSubtask" element={
                   <CreateSubtask
                     user={user} 
-                    subtaskTask={subtaskTask} />}
-                  />
+                    editTask={editTask}
+                  />} />
 
         <Route path="/editProject" element={
                   <UpdateProject

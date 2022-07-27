@@ -2,8 +2,19 @@ import React from "react";
 import {Link} from "react-router-dom";
 import './Project.css'
 
-function Project({setEditSubtask, setSubtaskTask, setEditTask, setTaskProject, setEditProject, selectProject, project, tasks }) {
+function Project({setEditSubtask, setEditTask, setEditProject, selectProject, project, tasks }) {
 
+    const HandleSelectProject = (e) => {
+        setEditProject(e.target.value)
+    }
+
+    const HandleSelectTask = (e) => {
+        setEditTask(e.target.value)
+    }
+
+    const HandleSelectSubtask = (e) => {
+        setEditSubtask(e.target.value)
+    }
 
 
     return  <div>
@@ -25,17 +36,15 @@ function Project({setEditSubtask, setSubtaskTask, setEditTask, setTaskProject, s
                         <h5>{project.priority}</h5>
 
                         <Link to="/editProject">
-                            <button onClick={setEditProject(project)}>Edit Project</button>
+                            <button value={project.id} onClick={HandleSelectProject}>Edit Project</button>
                         </Link>
 
-                        <button> delete </button>
-
                         <Link to="/newTask">
-                            <button onClick={setTaskProject(project)}> add task </button>
+                            <button value={project.id} onClick={HandleSelectProject}> add task </button>
                         </Link>
                             
                     </div>
-                </div>
+                    </div>
                     <div>
                     {tasks.slice(0).reverse().map((task) =>              
                     <div key={task.id}>
@@ -49,13 +58,12 @@ function Project({setEditSubtask, setSubtaskTask, setEditTask, setTaskProject, s
                         <h5>{task.life_cycle}</h5>
                         <h5>{task.priority}</h5>
                         <Link to="/editTask">
-                            <button onClick={setEditTask(task)}>Edit Task</button>
+                            <button value={task.id} onClick={HandleSelectTask}>Edit Task</button>
                         </Link>
 
-                        <button> delete </button>
 
                         <Link to="/newSubtask">
-                            <button onClick={setSubtaskTask(task)}> add sub </button>
+                            <button value={task.id} onClick={HandleSelectTask}> add sub </button>
                         </Link>
                     </div>
                     </div>
@@ -73,11 +81,8 @@ function Project({setEditSubtask, setSubtaskTask, setEditTask, setTaskProject, s
                         <h5>{subtask.life_cycle}</h5>
                         <h5>{subtask.priority}</h5>
                         <Link to="/editSubtask">
-                            <button onClick={setEditSubtask(subtask)}>Edit Subtask</button>
+                            <button value={subtask.id} onClick={HandleSelectSubtask}>Edit Subtask</button>
                         </Link>
-
-                        <button> delete </button>
-
                     </div>
                     </div>
                     </div>)}

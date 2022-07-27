@@ -10,7 +10,6 @@ const Home = ({ user, setEditSubtask, setSubtaskTask, setEditTask, setTaskProjec
 
   const [galaxy, setGalaxy] = useState(false)
   const [clicked, setClicked] = useState(false)
-
   const [projects, setProjects] = useState([])
   const [project, setProject] = useState([])
   const [tasks, setTasks] = useState([])
