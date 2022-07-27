@@ -27,7 +27,6 @@ function UpdateProject(props) {
     getEditProject()
   }, [])
 
-
   const handleSubmitProject = (e) => {
     e.preventDefault();
     fetch(`projects/${project.id}`, {

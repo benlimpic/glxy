@@ -27,7 +27,6 @@ function UpdateTask(props) {
     getEditTask()
   }, [])
 
-
   const handleSubmitTask = (e) => {
     e.preventDefault();
     fetch(`tasks/${task.id}`, {

@@ -27,7 +27,7 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1
   def update
     if @task.update(task_params)
-      render json: @task
+      render json: @task, status: :ok
     else
       render json: @task.errors, status: :unprocessable_entity
     end
@@ -35,7 +35,11 @@ class TasksController < ApplicationController
 
   # DELETE /tasks/1
   def destroy
-    @task.destroy
+    if @task.destroy
+      head :no_content
+    else
+      render json: @task.errors, status: :unprocessable_entity
+    end
   end
 
   private

@@ -27,7 +27,8 @@ class SubtasksController < ApplicationController
   # PATCH/PUT /subtasks/1
   def update
     if @subtask.update(subtask_params)
-      render json: @subtask
+      render json: @subtask, status: :ok
+
     else
       render json: @subtask.errors.full_messages, status: :unprocessable_entity
     end
@@ -35,7 +36,11 @@ class SubtasksController < ApplicationController
 
   # DELETE /subtasks/1
   def destroy
-    @subtask.destroy
+    if @subtask.destroy
+      head :no_content
+    else
+      render json: @subtask.errors.full_messages, status: :unprocessable_entity
+    end
   end
 
   private

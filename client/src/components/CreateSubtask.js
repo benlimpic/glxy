@@ -1,7 +1,9 @@
 import {useState, useEffect} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 function CreateProject(props) {
+
+    const navigate = useNavigate()
 
     const [task, setTask] = useState([])
     const [title, setTitle] = useState('');
@@ -24,7 +26,6 @@ function CreateProject(props) {
     }
     , [])
 
-
     const handleSubmitSubtask = (e) => {
     e.preventDefault();
     fetch("/subtasks", {
@@ -44,6 +45,7 @@ function CreateProject(props) {
             user_id: task.user_id
         })
     })
+    navigate('/')
     }
 
     return    <div>

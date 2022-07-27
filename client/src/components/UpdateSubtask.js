@@ -27,7 +27,6 @@ function UpdateSubtask(props) {
     getEditSubtask()
   }, [])
 
-
   const handleSubmitSubtask = (e) => {
     e.preventDefault();
     fetch(`subtasks/${subtask.id}`, {

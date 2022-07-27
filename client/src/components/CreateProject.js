@@ -1,14 +1,15 @@
 import {useState} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 function CreateProject(props) {
+
+    const navigate = useNavigate()
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [body, setBody] = useState('');
     const [lifeCycle, setLifeCycle] = useState('');
     const [priority, setPriority] = useState('');
-
 
     const handleSubmitProject = (e) => {
     e.preventDefault();
@@ -27,6 +28,7 @@ function CreateProject(props) {
             user_id: props.user.id
         })
     })
+    navigate("/")
     }
 
     return    <div>

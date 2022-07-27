@@ -14,8 +14,6 @@ const Home = ({ user, setEditSubtask, setSubtaskTask, setEditTask, setTaskProjec
   const [project, setProject] = useState([])
   const [tasks, setTasks] = useState([])
 
-  
-
 //-------------------------------------------------------
 
   useEffect(() => {

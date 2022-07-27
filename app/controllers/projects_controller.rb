@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   def update
     if @project.update(project_params)
-      render json: @project
+      render json: @project, status: :ok
     else
       render json: @project.errors.full_messages, status: :unprocessable_entity
     end
@@ -35,7 +35,12 @@ class ProjectsController < ApplicationController
 
   # DELETE /projects/1
   def destroy
-    @project.destroy
+    if @project.destroy
+      head :no_content
+    else
+      render json: @project.errors.full_messages, status: :unprocessable_entity
+    end
+
   end
 
   private

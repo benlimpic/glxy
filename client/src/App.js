@@ -22,8 +22,6 @@ function App() {
     setSelectProject(e.target.value)
   }
 
-  console.log(editTask)
-
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
@@ -35,7 +33,6 @@ function App() {
 
   if (!user) return <Login user={user} onLogin={setUser} />;
 
-  
   return (
 
     <div className="app">
