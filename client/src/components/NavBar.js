@@ -1,5 +1,5 @@
 import React from "react";
-
+import { FormField, Label, Select, Button } from "./styles";
 
 
 function NavBar({ user, setUser }) {

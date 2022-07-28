@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
+import { FormField, Label, Select, Button } from "./styles";
 
 function UpdateTask(props) {
   
@@ -9,6 +10,8 @@ function UpdateTask(props) {
   const [body, setBody] = useState([])
   const [lifeCycle, setLifeCycle] = useState([])
   const [priority, setPriority] = useState([])
+
+  const navigate = useNavigate()
 
   const getEditTask = () => {
     fetch(`/tasks/${props.editTask}`)
@@ -45,6 +48,7 @@ function UpdateTask(props) {
         user_id: task.user_id
       })
     })
+    navigate('/')
   }
 
   const handleDeleteTask = (e) => {

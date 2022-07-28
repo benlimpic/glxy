@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FormField, Label, Select, Button } from "./styles";
 
 function SignUpForm({ onLogin }) {
   const [name, setName] = useState("");

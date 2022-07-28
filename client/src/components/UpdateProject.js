@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
+import { FormField, Label, Select, Button } from "./styles";
 
 function UpdateProject(props) {
 
@@ -9,6 +10,8 @@ function UpdateProject(props) {
   const [body, setBody] = useState([])
   const [lifeCycle, setLifeCycle] = useState([])
   const [priority, setPriority] = useState([])
+
+  const navigate = useNavigate()
 
   const getEditProject = () => {
     fetch(`/projects/${props.editProject}`)
@@ -44,6 +47,7 @@ function UpdateProject(props) {
         user_id: project.user_id
       })
     })
+  navigate('/')
   }
 
   const handleDeleteProject = (e) => {

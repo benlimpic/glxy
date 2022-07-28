@@ -1,5 +1,7 @@
 import {useState, useEffect} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
+import { FormField, Label, Select, Button } from "./styles";
+
 
 function CreateProject(props) {
 
@@ -22,9 +24,9 @@ function CreateProject(props) {
     }
 
     useEffect(() => {
+        
         getTask()
-    }
-    , [])
+    }, [])
 
     const handleSubmitSubtask = (e) => {
     e.preventDefault();
@@ -96,12 +98,12 @@ function CreateProject(props) {
                 </div>
 
                 <div>
-                    <input type="submit" value="Submit" />
+                    <input type="submit" value="update" />
                 </div>
-                </form>
                 <Link to="/">
-                    <button>Home</button>
+                    <button>cancel</button>
                 </Link>
+                </form>
             </div>
 }
 

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
+import { FormField, Label, Select, Button } from "./styles";
 
 function UpdateSubtask(props) {
   
@@ -9,6 +10,8 @@ function UpdateSubtask(props) {
   const [body, setBody] = useState([])
   const [lifeCycle, setLifeCycle] = useState([])
   const [priority, setPriority] = useState([])
+
+  const navigate = useNavigate()
 
   const getEditSubtask = () => {
     fetch(`/subtasks/${props.editSubtask}`)
@@ -46,6 +49,7 @@ function UpdateSubtask(props) {
         user_id: subtask.user_id
       })
     })
+    navigate('/')
   }
 
   const handleDeleteSubtask = (e) => {

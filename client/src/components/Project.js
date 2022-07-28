@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import { FormField, Label, Select, Button } from "./styles";
 import './Project.css'
 
 function Project({setEditSubtask, setEditTask, setEditProject, selectProject, project, tasks }) {
