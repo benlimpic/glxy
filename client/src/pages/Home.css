@@ -1,14 +1,15 @@
 .Home {
-  /* flex: auto;
+  flex: auto;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
-  width: 100%; */
+  width: 100%;
 }
 
 /* .galaxy {
   flex: auto;
+  z-index: -1;
   display: flex;
   flex-direction: column;
   align-items: center;

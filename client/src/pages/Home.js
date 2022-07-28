@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './Home.css'
 import Project from '../components/Project'
+import ProjectFull from '../components/ProjectFull'
 import GalaxyBuild from '../components/GalaxyBuild'
 import ProjectOptions from '../components/ProjectOptions'
 
@@ -53,11 +54,28 @@ const Home = ({ user, setEditSubtask, setSubtaskTask, setEditTask, setTaskProjec
           setSelectProject={setSelectProject}
         />
         { galaxy ? 
+        <div>
         <GalaxyBuild className="galaxy"
-          project={project} 
-          tasks={tasks} /> 
-        : 
+        selectProject={selectProject}
+        project={project} 
+        tasks={tasks} /> 
+      
         <Project
+        setSelectProject={setSelectProject}
+        selectProject={selectProject}
+        setEditProject={setEditProject}
+        editProject={editProject}
+        project={project}
+        setProject={setProject} 
+        tasks={tasks} 
+        setTaskProject={setTaskProject}
+        setEditTask={setEditTask}
+        setSubtaskTask={setSubtaskTask}
+        setEditSubtask={setEditSubtask}/> 
+        </div>
+        : 
+        <div>
+        <ProjectFull
           setSelectProject={setSelectProject}
           selectProject={selectProject}
           setEditProject={setEditProject}
@@ -68,7 +86,8 @@ const Home = ({ user, setEditSubtask, setSubtaskTask, setEditTask, setTaskProjec
           setTaskProject={setTaskProject}
           setEditTask={setEditTask}
           setSubtaskTask={setSubtaskTask}
-          setEditSubtask={setEditSubtask}/> }
+          setEditSubtask={setEditSubtask}/> 
+          </div>}
       </div>  
   )
 }

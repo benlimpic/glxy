@@ -1,57 +1,46 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import { Box, Box2, Box3, FormField, Label, Select, button } from "../styles/Index";
 import './Project.css'
 
-function Project({setEditSubtask, setEditTask, setEditProject, selectProject, project, tasks }) {
+function ProjectFull({setEditSubtask, setEditTask, setEditProject, selectProject, project, tasks }) {
 
     const HandleSelectProject = (e) => {
-        setEditProject(e.target.value)
-    }
+        setEditProject(e.target.value)}
 
     const HandleSelectTask = (e) => {
-        setEditTask(e.target.value)
-    }
+        setEditTask(e.target.value)}
 
     const HandleSelectSubtask = (e) => {
-        setEditSubtask(e.target.value)
-    }
-
+        setEditSubtask(e.target.value)}
 
     return  <div>
                 { selectProject === null  ?
+
                 <div> 
                     <h1>Select A Project</h1>
                 </div>
                 : 
                 <div>
-                    <div className="dropdown">
-                    
-                    <h2>{project.title}</h2>
-
-                    <div className="dropdown-content">
+                <Box>
+                    <FormField>
                         <h3>{project.title}</h3>
                         <h5>{project.description}</h5>
                         <p>{project.body}</p>
                         <h5>{project.life_cycle}</h5>
                         <h5>{project.priority}</h5>
-
                         <Link to="/editProject">
                             <button value={project.id} onClick={HandleSelectProject}>Edit Project</button>
                         </Link>
 
                         <Link to="/newTask">
                             <button value={project.id} onClick={HandleSelectProject}> add task </button>
-                        </Link>
-                            
-                    </div>
-                </div>
-                    <div>
-                    {tasks.slice(0).reverse().map((task) =>              
-                    <div key={task.id}>
-                    <div className="dropdown">
-                            <h3>{task.title}</h3>
+                        </Link>                            
+                    </FormField>
 
-                    <div className="dropdown-content">
+                    {tasks.slice(0).reverse().map((task) =>              
+                    <Box2 key={task.id}>
+                        <FormField>
                         <h3>{task.title}</h3>
                         <h5>{task.description}</h5>
                         <p>{task.body}</p>
@@ -60,21 +49,15 @@ function Project({setEditSubtask, setEditTask, setEditProject, selectProject, pr
                         <Link to="/editTask">
                             <button value={task.id} onClick={HandleSelectTask}>Edit Task</button>
                         </Link>
-
-
                         <Link to="/newSubtask">
                             <button value={task.id} onClick={HandleSelectTask}> add sub </button>
                         </Link>
-                    </div>
-                    </div>
-                    <div>
-                    <div>
-                    {task.subtasks.slice(0).reverse().map((subtask) =>
-                    <div key={subtask.id}>    
-                    <div className="dropdown">
-                        <h4>{subtask.title}</h4>
+                        </FormField>
 
-                    <div className="dropdown-content">
+
+                    {task.subtasks.slice(0).reverse().map((subtask) =>
+                    <Box3 key={subtask.id}>    
+                        <FormField>
                         <h3>{subtask.title}</h3>
                         <h5>{subtask.description}</h5>
                         <p>{subtask.body}</p>
@@ -83,15 +66,14 @@ function Project({setEditSubtask, setEditTask, setEditProject, selectProject, pr
                         <Link to="/editSubtask">
                             <button value={subtask.id} onClick={HandleSelectSubtask}>Edit Subtask</button>
                         </Link>
-                    </div>
-                    </div>
-                    </div>)}
-                    </div>
-                    </div>
-                    </div>)}
-                    </div>
+                    </FormField>
+                    </Box3>)}
+
+                    </Box2>)}
+
+                </Box>
                 </div>}
             </div>
 }       
 
-export default Project
+export default ProjectFull

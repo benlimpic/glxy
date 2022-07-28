@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 import './GalaxyBuild.css'
-function GalaxyBuild({setSelectProject, project, tasks, subtasks}) {
+function GalaxyBuild({selectProject, setSelectProject, project, tasks, subtasks}) {
 
   useEffect(() => {
   const init = () => {
@@ -10,7 +10,14 @@ function GalaxyBuild({setSelectProject, project, tasks, subtasks}) {
 
   const ABC = ["a", "b", "c", "d", "e", "f", "g", "h" ]
   
-  return  <div className="galaxyShow">
+  return  <div>
+          { selectProject === null  ?
+          <div> 
+              
+          </div>
+          : 
+          <div>
+          <div className="galaxyShow">
             <div className="galaxy">
               <div id="universe" className="scale-stretched">
                 <div id="galaxy">
@@ -296,6 +303,8 @@ function GalaxyBuild({setSelectProject, project, tasks, subtasks}) {
                 </div>
               </div>
             </div>
+          </div>
+          </div>}
           </div>
   }
 

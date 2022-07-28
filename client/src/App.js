@@ -13,7 +13,7 @@ import UpdateSubtask from "./components/UpdateSubtask";
 function App() {
 
   const [user, setUser] = useState(null);
-  const [selectProject, setSelectProject] = useState(null)
+  const [selectProject, setSelectProject] = useState(null);
   const [editProject, setEditProject] = useState(null)
   const [editTask, setEditTask] = useState(null)
   const [editSubtask, setEditSubtask] = useState(null)

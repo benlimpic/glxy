@@ -44,7 +44,7 @@ body {
   
 #sun {
   background-color: #FB7209;
-  z-index: 2; 
+  z-index: 1; 
   background-repeat: no-repeat;
   background-size: cover;
   box-shadow: 0 0 60px rgba(255, 160, 60, 0.4); }

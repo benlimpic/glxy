@@ -1,13 +1,13 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import { FormField, Label, Select, Button } from "./styles";
+// import { FormField, Label, Select, Button } from "./styles";
 
 const ProjectOptions = ({ setSelectProject, projects }) => {
 
 
   return  <div>
             <select onChange={setSelectProject}>
-              <option defaultValue="">Select Project</option>
+              <option value="null" selected disabled hidden>Select Project</option>
                 {projects.map(data => (
                   <option key={data.id} value={data.id}>{data.title}</option>
                 ))}

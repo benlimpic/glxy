@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
-import { FormField, Label, Select, Button } from "./styles";
+// import { FormField, Label, Select, Button } from "./styles";
 
 function UpdateSubtask(props) {
   
@@ -61,6 +61,7 @@ function UpdateSubtask(props) {
         "Accept": "application/json"
       }
     })
+    navigate('/')
   }
 
   return (
