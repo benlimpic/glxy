@@ -11,12 +11,11 @@ function GalaxyBuild({selectProject, setSelectProject, project, tasks, subtasks}
   const ABC = ["a", "b", "c", "d", "e", "f", "g", "h" ]
   
   return  <div>
-          { selectProject === null  ?
+          {selectProject === null  ?
           <div> 
-              
+
           </div>
-          : 
-          <div>
+          :
           <div className="galaxyShow">
             <div className="galaxy">
               <div id="universe" className="scale-stretched">
@@ -303,7 +302,6 @@ function GalaxyBuild({selectProject, setSelectProject, project, tasks, subtasks}
                 </div>
               </div>
             </div>
-          </div>
           </div>}
           </div>
   }

@@ -24,11 +24,11 @@ function Project({setEditSubtask, setEditTask, setEditProject, selectProject, pr
                 </div>
                 : 
                 <div>
-                    <div className="dropdown">
+                    <div className="dropdown-project">
                     
                     <h2>{project.title}</h2>
 
-                    <div className="dropdown-content">
+                    <div className="dropdown-project-content">
                         <h3>{project.title}</h3>
                         <h5>{project.description}</h5>
                         <p>{project.body}</p>
@@ -46,12 +46,15 @@ function Project({setEditSubtask, setEditTask, setEditProject, selectProject, pr
                     </div>
                 </div>
                     <div>
-                    {tasks.slice(0).reverse().map((task) =>              
-                    <div key={task.id}>
-                    <div className="dropdown">
-                            <h3>{task.title}</h3>
+                    <ul>
 
-                    <div className="dropdown-content">
+                    {tasks.slice(0).reverse().map((task) =>              
+                    <li>
+                    <div key={task.id}>
+                    <div className="dropdown-task">
+                            <h2>{task.title}</h2>
+
+                    <div className="dropdown-task-content">
                         <h3>{task.title}</h3>
                         <h5>{task.description}</h5>
                         <p>{task.body}</p>
@@ -69,12 +72,15 @@ function Project({setEditSubtask, setEditTask, setEditProject, selectProject, pr
                     </div>
                     <div>
                     <div>
-                    {task.subtasks.slice(0).reverse().map((subtask) =>
-                    <div key={subtask.id}>    
-                    <div className="dropdown">
-                        <h4>{subtask.title}</h4>
+                    <ul>
 
-                    <div className="dropdown-content">
+                    {task.subtasks.slice(0).reverse().map((subtask) =>
+                    <li>
+                    <div key={subtask.id}>    
+                    <div className="dropdown-subtask">
+                        <h3>{subtask.title}</h3>
+
+                    <div className="dropdown-subtask-content">
                         <h3>{subtask.title}</h3>
                         <h5>{subtask.description}</h5>
                         <p>{subtask.body}</p>
@@ -85,10 +91,14 @@ function Project({setEditSubtask, setEditTask, setEditProject, selectProject, pr
                         </Link>
                     </div>
                     </div>
-                    </div>)}
+                    </div>
+                    </li>)}
+                    </ul>
                     </div>
                     </div>
-                    </div>)}
+                    </div>
+                    </li>)}
+                    </ul>
                     </div>
                 </div>}
             </div>
