@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import './Home.css'
-import Project from '../components/Project'
 import ProjectFull from '../components/ProjectFull'
 import GalaxyBuild from '../components/GalaxyBuild'
 import ProjectOptions from '../components/ProjectOptions'
@@ -14,6 +13,7 @@ const Home = ({ user, setEditSubtask, setSubtaskTask, setEditTask, setTaskProjec
   const [projects, setProjects] = useState([])
   const [project, setProject] = useState([])
   const [tasks, setTasks] = useState([])
+ 
 
 //-------------------------------------------------------
 
@@ -45,49 +45,35 @@ const Home = ({ user, setEditSubtask, setSubtaskTask, setEditTask, setTaskProjec
 //-------------------------------------------------------
 
   return (
-      <div>
-        <button onClick={handleGalaxyClick}>{clicked ? "Show Text" : "Show Galaxy"}</button>
-        
-        <ProjectOptions
-          projects={projects}
-          selectProject={selectProject}
-          setSelectProject={setSelectProject}
-        />
+      <div>     
+          <ProjectOptions
+            handleGalaxyClick={handleGalaxyClick}
+            clicked={clicked}
+            projects={projects}
+            selectProject={selectProject}
+            setSelectProject={setSelectProject} />
         { galaxy ? 
         <div>
-        <GalaxyBuild className="galaxy"
-        selectProject={selectProject}
-        project={project} 
-        tasks={tasks} /> 
-      
-        <Project
-        setSelectProject={setSelectProject}
-        selectProject={selectProject}
-        setEditProject={setEditProject}
-        editProject={editProject}
-        project={project}
-        setProject={setProject} 
-        tasks={tasks} 
-        setTaskProject={setTaskProject}
-        setEditTask={setEditTask}
-        setSubtaskTask={setSubtaskTask}
-        setEditSubtask={setEditSubtask}/> 
+          <GalaxyBuild className="galaxy"
+            selectProject={selectProject}
+            project={project} 
+            tasks={tasks} /> 
         </div>
         : 
         <div>
-        <ProjectFull
-          setSelectProject={setSelectProject}
-          selectProject={selectProject}
-          setEditProject={setEditProject}
-          editProject={editProject}
-          project={project}
-          setProject={setProject} 
-          tasks={tasks} 
-          setTaskProject={setTaskProject}
-          setEditTask={setEditTask}
-          setSubtaskTask={setSubtaskTask}
-          setEditSubtask={setEditSubtask}/> 
-          </div>}
+          <ProjectFull
+            setSelectProject={setSelectProject}
+            selectProject={selectProject}
+            setEditProject={setEditProject}
+            editProject={editProject}
+            project={project}
+            setProject={setProject} 
+            tasks={tasks} 
+            setTaskProject={setTaskProject}
+            setEditTask={setEditTask}
+            setSubtaskTask={setSubtaskTask}
+            setEditSubtask={setEditSubtask} /> 
+        </div>}
       </div>  
   )
 }

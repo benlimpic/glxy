@@ -1,29 +1,29 @@
 
-body {
-  font-size: 10px;
+.project {
+  color: #fff;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 #universe {
   position: absolute;
   width: 100%;
   height: 100%;
-
-  background-color: #000000; }
+  background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);;  
+  overflow: hidden;
+}
   
 #galaxy {
   position: absolute;
   width: 100%;
-  height: 100%; } 
+  height: 90%; 
+  overflow: hidden;
+} 
   
 #solar-system {
   display: block;
 } 
-
-.highlight:hover {
-  border-radius: 20px;
-  padding: 20px;
-  border: 5px solid red;
-}
 
 .pos {
   position: absolute;
@@ -635,63 +635,75 @@ body {
 
 /* device sizing */
 
+@media screen and (min-width: 0px) {
+  #solar-system {
+    font-size: 0%; } }
 @media screen and (min-width: 200px) {
   #solar-system {
-    font-size: 8%; } }
+    font-size: 6%; } }
 @media screen and (min-width: 300px) {
   #solar-system {
-    font-size: 15%; } }
+    font-size: 8%; } }
 @media screen and (min-width: 315px) {
   #solar-system {
-    font-size: 12%; } }
+    font-size: 8%; } }
 @media screen and (min-width: 325px) {
   #solar-system {
-    font-size: 15%; } }
+    font-size: 8%; } }
+@media screen and (min-width: 370px) {
+  #solar-system {
+    font-size: 10%; } }
+@media screen and (min-width: 388px) {
+  #solar-system {
+    font-size: 10%; } }
+@media screen and (min-width: 410px) {
+  #solar-system {
+    font-size: 10%; } }
 @media screen and (min-width: 500px) {
   #solar-system {
-    font-size: 12%; } }
+    font-size: 8%; } }
 @media screen and (min-width: 750px) {
   #solar-system {
-    font-size: 15%; } }
+    font-size: 8%; } }
 @media screen and (min-width: 760px) {
   #solar-system {
-    font-size: 30%; } }
+    font-size: 18%; } }
 @media screen and (min-width: 800px) {
   #solar-system {
-    font-size: 15%; } }
+    font-size: 8%; } }
 @media screen and (min-width: 820px) {
   #solar-system {
-    font-size: 30%; } }
+    font-size: 20%; } }
 @media screen and (min-width: 830px) {
   #solar-system {
-    font-size: 15%; } }
+    font-size: 8%; } }
 @media screen and (min-width: 850px) {
   #solar-system {
-    font-size: 25%; } }
+    font-size: 17%; } }
 @media screen and (min-width: 880px) {
   #solar-system {
-    font-size: 15%; } }
+    font-size: 8%; } }
 @media screen and (min-width: 900px) {
   #solar-system {
-    font-size: 25%; } }
+    font-size: 17%; } }
 @media screen and (min-width: 1000px) {
   #solar-system {
-    font-size: 30%; } } 
+    font-size: 22%; } } 
 @media screen and (min-width: 1020px) {
   #solar-system {
-    font-size: 31%; } } 
+    font-size: 25%; } } 
 @media screen and (min-width: 1025px) {
   #solar-system {
-    font-size: 35%; } } 
+    font-size: 22%; } } 
 @media screen and (min-width: 1179px) {
   #solar-system {
-    font-size: 32%; } } 
+    font-size: 22%; } } 
 @media screen and (min-width: 1185px) {
   #solar-system {
-    font-size: 35%; } } 
+    font-size: 22%; } } 
 @media screen and (min-width: 1200px) {
   #solar-system {
-    font-size: 40%; } } 
+    font-size: 22%; } } 
 
 
 

@@ -1,9 +1,11 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import { Box, Box2, Box3, FormField, Label, Select, button } from "../styles/Index";
+import { Box, Box2, Box3, FormField, Label, Textarea, TextareaB, Select, button } from "../styles/Index";
 import './Project.css'
 
 function ProjectFull({setEditSubtask, setEditTask, setEditProject, selectProject, project, tasks }) {
+
+
 
     const HandleSelectProject = (e) => {
         setEditProject(e.target.value)}
@@ -21,14 +23,18 @@ function ProjectFull({setEditSubtask, setEditTask, setEditProject, selectProject
                     <h1>Select A Project</h1>
                 </div>
                 : 
-                <div>
+                <div >
                 <Box>
                     <FormField>
-                        <h3>{project.title}</h3>
-                        <h5>{project.description}</h5>
-                        <p>{project.body}</p>
-                        <h5>{project.life_cycle}</h5>
-                        <h5>{project.priority}</h5>
+                        <h2>{project.title}</h2>
+                        <label>Description:</label>
+                        <Textarea value={project.description}/>
+                        <label>Notes:</label>
+                        <Textarea value={project.body} />
+                        <div>
+                            <h4>{project.life_cycle}</h4>
+                            <h4>Sun</h4>
+                        </div>
                         <Link to="/editProject">
                             <button value={project.id} onClick={HandleSelectProject}>Edit Project</button>
                         </Link>
@@ -41,9 +47,11 @@ function ProjectFull({setEditSubtask, setEditTask, setEditProject, selectProject
                     {tasks.slice(0).reverse().map((task) =>              
                     <Box2 key={task.id}>
                         <FormField>
-                        <h3>{task.title}</h3>
-                        <h5>{task.description}</h5>
-                        <p>{task.body}</p>
+                        <h2>{task.title}</h2>
+                        <label>Description:</label>
+                        <Textarea value={task.description}/>
+                        <label>Notes:</label>
+                        <Textarea value={task.body}/>
                         <h5>{task.life_cycle}</h5>
                         <h5>{task.priority}</h5>
                         <Link to="/editTask">
@@ -58,9 +66,11 @@ function ProjectFull({setEditSubtask, setEditTask, setEditProject, selectProject
                     {task.subtasks.slice(0).reverse().map((subtask) =>
                     <Box3 key={subtask.id}>    
                         <FormField>
-                        <h3>{subtask.title}</h3>
-                        <h5>{subtask.description}</h5>
-                        <p>{subtask.body}</p>
+                        <h2>{subtask.title}</h2>
+                        <label>Description:</label>
+                        <Textarea value={subtask.description}/>
+                        <label>Notes:</label>
+                        <Textarea value={subtask.body}/>
                         <h5>{subtask.life_cycle}</h5>
                         <h5>{subtask.priority}</h5>
                         <Link to="/editSubtask">

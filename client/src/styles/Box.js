@@ -5,7 +5,7 @@ const Box = styled.div`
   box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%),
     0 0 0 1px rgb(10 10 10 / 2%);
   padding: 16px;
-  background-color: #e88079;
+  background: linear-gradient(to bottom, #d66d75, #e29587);
   margin-bottom: 16px;
 `;
 

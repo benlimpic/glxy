@@ -23,6 +23,9 @@ function GalaxyBuild({selectProject, setSelectProject, project, tasks, subtasks}
                   <div id="solar-system" className="earth">
                     <div value={project} id="sun"></div>
 
+            <div className="project">
+              <h1>{project.title}</h1>
+            </div>
 
                       {tasks.map((task, index) => task.priority === "Urgent" ?
                         <div key={task.id} value={task} id={`earth-${index + 1}`} className="orbit">

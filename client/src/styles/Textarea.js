@@ -9,7 +9,7 @@ const Textarea = styled.textarea`
   width: 100%;
   font-size: 1rem;
   line-height: 1.5;
-  padding: 4px;
+  padding: auto;
   resize: none;
 `;
 

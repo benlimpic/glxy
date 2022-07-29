@@ -7,20 +7,11 @@
   width: 100%;
 }
 
-/* .galaxy {
-  flex: auto;
-  z-index: -1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 75vh;
-  zoom: .6;
-  overflow: hidden;
-} */
-
-
-
-
+label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: rgb(63, 63, 63);
+  margin-bottom: 1rem;
+}
 
 
