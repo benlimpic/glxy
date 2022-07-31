@@ -8,9 +8,13 @@ import './index.css';
 
 const express = require('express');
 const app = express();
+const cors = require('cors');
+require(dotenv).config();
 
-app.get("/"), (req, res) => {
-  res.send("Hello World");
+app.use(cors());
+app.use(express.json());
+
+
 
 const GlobalStyle = createGlobalStyle`
   *,
@@ -39,7 +43,7 @@ root.render(
 
 );
 
-app.listen(process.env.PORT || 3000);
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
