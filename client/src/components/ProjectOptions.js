@@ -1,25 +1,20 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-// import { FormField, Label, Select, Button } from "./styles";
+import { Select, Button, Box5 } from "../styles/index.js";
 
-const ProjectOptions = ({ setSelectProject, projects, handleGalaxyClick , clicked}) => {
-
-  
+const ProjectOptions = ({ setSelectProject, projects}) => {
 
 
-  return  <div>
-              <div>
-                <button onClick={handleGalaxyClick}>{clicked ? "Show Text" : "Show Galaxy"}</button>
-              </div>
-              <select onChange={setSelectProject}>
+  return  <Box5>
+              <Select onChange={setSelectProject}>
                 <option value="null" selected disabled hidden>Select Project</option>
                   {projects.map(data => (
                     <option key={data.id} value={data.id}>{data.title}</option>
                   ))}
-              </select>
+              </Select>
                 <Link to="/newProject">
-                  <button>New Project</button>
+                  <Button>New Project</Button>
                 </Link>
-          </div>
+          </Box5>
 }
 export default ProjectOptions

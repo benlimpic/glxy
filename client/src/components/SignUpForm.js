@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { FormField, Label, Select, Button } from "./styles";
+import { Button, Error, Input, FormField, Label } from "../styles/index.js";
 
 function SignUpForm({ onLogin }) {
   const [name, setName] = useState("");
@@ -38,63 +38,63 @@ function SignUpForm({ onLogin }) {
 
   return (
     <form onSubmit={handleSubmit}>
-    
-        <label htmlFor="name">Name</label>
-        <input
+            <FormField>
+        <Label htmlFor="name">Name</Label>
+        <Input
           type="text"
           id="name"
           autoComplete="off"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-      
-    
-        <label htmlFor="email">Email</label>
-        <input
+      </FormField>
+      <FormField>
+        <Label htmlFor="email">Email</Label>
+        <Input
           type="text"
           id="email"
           autoComplete="off"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-      
-    
-        <label htmlFor="username">Username</label>
-        <input
+      </FormField>
+      <FormField>
+        <Label htmlFor="username">Username</Label>
+        <Input
           type="text"
           id="username"
           autoComplete="off"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-      
-    
-        <label htmlFor="password">Password</label>
-        <input
+      </FormField>
+      <FormField>
+        <Label htmlFor="password">Password</Label>
+        <Input
           type="password"
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           autoComplete="current-password"
         />
-      
-    
-        <label htmlFor="password">Password Confirmation</label>
-        <input
+      </FormField>
+      <FormField>
+        <Label htmlFor="password">Password Confirmation</Label>
+        <Input
           type="password"
           id="password_confirmation"
           value={passwordConfirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           autoComplete="current-password"
         />
-      
-    
-        <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
-      
-    
-        {errors.map((err) => <error key={err}>{err}</error>
+      </FormField>
+      <FormField>
+        <Button type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button>
+      </FormField>
+      <FormField>
+        {errors.map((err) => <Error key={err}>{err}</Error>
         )}
-      
+      </FormField>
     </form>
   );
 }

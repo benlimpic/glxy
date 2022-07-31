@@ -1,7 +1,7 @@
 
 .project {
-  color: #fff;
-  text-align: center;
+  color: rgb(109, 108, 108);
+  text-align: left;
   font-size: 1rem;
   font-weight: bold;
 }
@@ -10,15 +10,15 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);;  
   overflow: hidden;
+  background-color: #251D3A;
 }
   
 #galaxy {
   position: absolute;
   width: 100%;
-  height: 90%; 
-  overflow: hidden;
+  height: 65%; 
+
 } 
   
 #solar-system {
@@ -688,22 +688,32 @@
     font-size: 17%; } }
 @media screen and (min-width: 1000px) {
   #solar-system {
-    font-size: 22%; } } 
+    font-size: 17%; } } 
 @media screen and (min-width: 1020px) {
   #solar-system {
-    font-size: 25%; } } 
+    font-size: 17%; } } 
 @media screen and (min-width: 1025px) {
   #solar-system {
-    font-size: 22%; } } 
+    font-size: 17%; } } 
 @media screen and (min-width: 1179px) {
   #solar-system {
-    font-size: 22%; } } 
+    font-size: 17%; } } 
 @media screen and (min-width: 1185px) {
   #solar-system {
-    font-size: 22%; } } 
+    font-size: 17%; } } 
 @media screen and (min-width: 1200px) {
   #solar-system {
-    font-size: 22%; } } 
+    font-size: 17%; } } 
+@media screen and (min-width: 1500px) {
+  #solar-system {
+    font-size: 17%; } } 
+@media screen and (min-width: 2000px) {
+  #solar-system {
+    font-size: 17%; } } 
+@media screen and (min-width: 3000px) {
+  #solar-system {
+    font-size: 17%; } } 
+
 
 
 

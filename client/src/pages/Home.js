@@ -3,6 +3,7 @@ import './Home.css'
 import ProjectFull from '../components/ProjectFull'
 import GalaxyBuild from '../components/GalaxyBuild'
 import ProjectOptions from '../components/ProjectOptions'
+import { Button, Box, Box4 } from "../styles/index.js";
 
 
 
@@ -45,22 +46,36 @@ const Home = ({ user, setEditSubtask, setSubtaskTask, setEditTask, setTaskProjec
 //-------------------------------------------------------
 
   return (
-      <div>     
+      <div>
+        {clicked ? 
+        <div>
+        <Box4>
           <ProjectOptions
             handleGalaxyClick={handleGalaxyClick}
             clicked={clicked}
             projects={projects}
             selectProject={selectProject}
             setSelectProject={setSelectProject} />
-        { galaxy ? 
-        <div>
+            <Button onClick={handleGalaxyClick}>{clicked ? "Show Text" : "Show Galaxy"}</Button>
+        </Box4>
+
           <GalaxyBuild className="galaxy"
             selectProject={selectProject}
             project={project} 
             tasks={tasks} /> 
         </div>
-        : 
-        <div>
+        :
+        <div> 
+        <Box4>
+          <ProjectOptions
+            handleGalaxyClick={handleGalaxyClick}
+            clicked={clicked}
+            projects={projects}
+            selectProject={selectProject}
+            setSelectProject={setSelectProject} />
+            <Button onClick={handleGalaxyClick}>{clicked ? "Show Text" : "Show Galaxy"}</Button>
+        </Box4>
+
           <ProjectFull
             setSelectProject={setSelectProject}
             selectProject={selectProject}
@@ -73,6 +88,7 @@ const Home = ({ user, setEditSubtask, setSubtaskTask, setEditTask, setTaskProjec
             setEditTask={setEditTask}
             setSubtaskTask={setSubtaskTask}
             setEditSubtask={setEditSubtask} /> 
+
         </div>}
       </div>  
   )

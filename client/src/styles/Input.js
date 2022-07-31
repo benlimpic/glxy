@@ -9,7 +9,9 @@ const Input = styled.input`
   width: 100%;
   font-size: 1rem;
   line-height: 1.5;
-  padding: 4px;
+  padding: .5 rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
 `;
 
 export default Input;

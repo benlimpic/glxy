@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 const FormField = styled.div`
   &:not(:last-child) {
-    margin-bottom: 12px;
+    margin-top: .5 rem;
+    margin-bottom: .5 rem;
   }
 `;
 

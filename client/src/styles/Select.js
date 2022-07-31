@@ -10,7 +10,9 @@ const Select = styled.select`
   width: 100%;
   font-size: 1rem;
   line-height: 1;
-  padding: 1rem;
+  padding: .5 rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
 `;
 
 

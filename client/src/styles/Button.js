@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 const COLORS = {
   primary: {
-    "--main": "goldenrod",
-    "--accent": "black",
+    "--main": "#E04D01",
+    "--accent": "white",
   },
   secondary: {
-    "--main": "goldenrod",
-    "--accent": "black",
+    "--main": "#E04D01",
+    "--accent": "white",
   },
 };
 
@@ -29,7 +29,8 @@ const ButtonBase = styled.button`
   border-radius: 6px;
   padding: .25rem;
   text-decoration: none;
-  margin: 10px;
+  margin: .5rem;
+
 `;
 
 const FillButton = styled(ButtonBase)`

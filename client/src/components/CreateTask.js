@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
-// import { FormField, Label, Select, Button } from "./styles";
+import './Form.css'
+import { Box, Box2, Button, Error, Input, FormField, Label, Textarea, Select } from "../styles/index.js";
 
 function CreateProject(props) {
 
@@ -12,6 +13,7 @@ function CreateProject(props) {
     const [body, setBody] = useState('');
     const [lifeCycle, setLifeCycle] = useState('');
     const [priority, setPriority] = useState('');
+    const [errors, setErrors] = useState([]);
 
     const getProject = () => {
         fetch(`/projects/${props.editProject}`)
@@ -24,8 +26,7 @@ function CreateProject(props) {
 
     useEffect(() => {
         getProject()
-    }
-    , [])
+    }, [])
 
     const handleSubmitTask = (e) => {
     e.preventDefault();
@@ -48,61 +49,77 @@ function CreateProject(props) {
     navigate('/')
     }
 
-    return    <div>
+    return  <Box>
+            <Box2 className="Form">
             <h1>Create New Task</h1>          
-                <form onSubmit={handleSubmitTask}>
-                <div>
-                    <label>Title:</label>
-                    <input type="text" value={title} required 
+            <form onSubmit={handleSubmitTask}>
+                <FormField>
+                    <Label>Title:</Label>
+                    <Input type="text" value={title} required 
                     onChange={(e) => setTitle(e.target.value)}/>
-                </div>
+                </FormField>
 
-                <div>
-                    <label>Description:</label>
-                    <textarea rows="5" type="text" value={description} 
+                <FormField>
+                    <Label>Description:</Label>
+                    <Textarea rows="5" type="text" value={description} 
                     onChange={(e) => setDescription(e.target.value)}/>
-                </div>
+                </FormField>
 
-                <div>
-                    <label>Notes:</label>
-                    <textarea rows="10" type="text" value={body} required 
+                <FormField>
+                    <Label>Notes:</Label>
+                    <Textarea rows="10" type="text" value={body} required 
                     onChange={(e) => setBody(e.target.value)}/>
-                </div>
+                </FormField>
 
-                <div>
-                    <label>Status:</label>
-                    <select value={lifeCycle} 
-                    onChange={(e) => setLifeCycle(e.target.value)}>
+                <FormField>
+                    <Label>Status:</Label>
+                    <Select value={lifeCycle} 
+                        onChange={(e) => setLifeCycle(e.target.value)}>
                         <option value="">Choose A Status</option>
                         <option value="Assigned">Assigned</option>
                         <option value="In Progress">In Progress</option>
                         <option value="Ready For Review">Ready For Review</option>
                         <option value="Edit Requested">Edit Requested</option>
                         <option value="Completed">Completed</option>
-                    </select>
-                </div>
+                    </Select>
+                </FormField>
 
-                <div>
-                    <label>Priority:</label>
-                    <select value={priority}
-                    onChange={(e) => setPriority(e.target.value)}>
-                        <option value="">Choose A Priority</option>
-                        <option value="Urgent">Urgent</option>
-                        <option value="High">High</option>
-                        <option value="Medium">Medium</option>
-                        <option value="Low">Low</option>
-                        <option value="None">None</option>
-                    </select>
-                </div>
+                <FormField>
+                    <Label>Priority:</Label>
+                    <Select value={priority}
+                        onChange={(e) => setPriority(e.target.value)}>
+                        <option value="">Choose A Planet</option>
+                        <option value="Earth">Earth</option>
+                        <option value="Mars">Mars</option>
+                        <option value="Jupiter">Jupiter</option>
+                        <option value="Saturn">Saturn</option>
+                        <option value="Uranus">Uranus</option>
+                    </Select>
+                </FormField>
 
-                <div>
-                    <input type="submit" value="Submit" />
-                </div>
+                <FormField>
+                    <Button variant="fill" color="primary" type="submit">
+                        Create
+                    </Button>
+                </FormField>
+
+                <FormField>
+                    <Link to="/">
+                        <Button>Cancel</Button>
+                    </Link>
+                </FormField>
+
+                <FormField>
+                    {errors.map((err) => (
+                    <Error key={err}>{err}</Error>
+                ))}
+                </FormField>
+
                 </form>
-                <Link to="/">
-                    <button>Home</button>
-                </Link>
-            </div>
-}
+            </Box2>
+            </Box>
+    }
+
+
 
 export default CreateProject

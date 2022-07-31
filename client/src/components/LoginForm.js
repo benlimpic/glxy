@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-// import { FormField, Label, Select, Button } from "./styles";
+import { Button, Error, Input, FormField, Label } from "../styles/index.js";
+
 
   function LoginForm({ onLogin }) {
     const [username, setUsername] = useState("");
@@ -25,38 +26,44 @@ import React, { useState } from "react";
             console.log(err)
             setErrors(err.error)
           }
-          )  
+          )
+            
         }
       })
     }
 
   return (
     <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username</label>
-        <input
+      <FormField>
+        <Label htmlFor="username">Username</Label>
+        <Input
           type="text"
           id="username"
           autoComplete="off"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-
-        <label htmlFor="password">Password</label>
-        <input
+      </FormField>
+      <FormField>
+        <Label htmlFor="password">Password</Label>
+        <Input
           type="password"
           id="password"
           autoComplete="current-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-
-        <button variant="fill" color="primary" type="submit">
+      </FormField>
+      <FormField>
+        <Button variant="fill" color="primary" type="submit">
           {isLoading ? "Loading..." : "Login"}
-        </button>
-
+        </Button>
+      </FormField>
+      <FormField>
         {errors.map((err) => (
-          <error key={err}>{err}</error>
+          <Error key={err}>{err}</Error>
         ))}
+      </FormField>
     </form>
   );
 }

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
-// import { FormField, Label, Select, Button } from "./styles";
+import './Form.css'
+import { Box, Box1, Button, Error, Input, FormField, Label, Textarea, Select } from "../styles/index.js";
 
 function UpdateProject(props) {
 
@@ -10,6 +11,7 @@ function UpdateProject(props) {
   const [body, setBody] = useState([])
   const [lifeCycle, setLifeCycle] = useState([])
   const [priority, setPriority] = useState([])
+  const [errors, setErrors] = useState([]);
 
   const navigate = useNavigate()
 
@@ -63,27 +65,28 @@ function UpdateProject(props) {
   }
 
   return (
-    <div>
-      <h3>update project</h3>
+    <Box>
+    <Box1 className="Form">
+      <h1>Update Project</h1>
       <form onSubmit={handleSubmitProject}>
-        <div>
-          <label>Title:</label>
-          <input type="text" value={title} required
+        <FormField>
+          <Label>Title:</Label>
+          <Input type="text" value={title} required
           onChange={(e) => setTitle(e.target.value)}/>
-        </div>
-        <div>
-          <label>Description:</label>
-          <textarea rows="5" type="text" value={description} required
+        </FormField>
+        <FormField>
+          <Label>Description:</Label>
+          <Textarea rows="5" type="text" value={description} required
           onChange={(e) => setDescription(e.target.value)}/>
-        </div>
-        <div>
-          <label>Notes:</label>
-          <textarea rows="10" type="text" value={body} required
+        </FormField>
+        <FormField>
+          <Label>Notes:</Label>
+          <Textarea rows="10" type="text" value={body} required
           onChange={(e) => setBody(e.target.value)}/>
-        </div>
-        <div>
-          <label>Status:</label>
-          <select value={lifeCycle} 
+        </FormField>
+        <FormField>
+          <Label>Status:</Label>
+          <Select value={lifeCycle} 
           onChange={(e) => setLifeCycle(e.target.value)}>
               <option value="">Choose A Status</option>
               <option value="Assigned">Assigned</option>
@@ -91,11 +94,11 @@ function UpdateProject(props) {
               <option value="Ready For Review">Ready For Review</option>
               <option value="Edit Requested">Edit Requested</option>
               <option value="Completed">Completed</option>
-          </select>
-        </div>
-        <div>
-          <label>Priority:</label>
-          <select value={priority}
+          </Select>
+        </FormField>
+        <FormField>
+          <Label>Priority:</Label>
+          <Select value={priority}
           onChange={(e) => setPriority(e.target.value)}>
               <option value="">Choose A Priority</option>
               <option value="Urgent">Urgent</option>
@@ -103,15 +106,21 @@ function UpdateProject(props) {
               <option value="Medium">Medium</option>
               <option value="Low">Low</option>
               <option value="None">None</option>
-          </select>
-        </div>
-        <button type="submit">Update</button>
-        <button onClick={handleDeleteProject}>Delete</button>
+          </Select>
+        </FormField>
+        <Button type="submit">Update</Button>
+        <Button onClick={handleDeleteProject}>Delete</Button>
         <Link to="/">
-          <button> cancel </button>
+          <Button> cancel </Button>
         </Link>
+        <FormField>
+            {errors.map((err) => (
+            <Error key={err}>{err}</Error>
+        ))}
+        </FormField>
       </form>
-    </div>
+    </Box1>
+    </Box>
   )
 }
 

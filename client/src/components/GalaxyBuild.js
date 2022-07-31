@@ -1,12 +1,13 @@
 import {useEffect} from 'react';
 import './GalaxyBuild.css'
+import { Box } from "../styles/index.js";
 function GalaxyBuild({selectProject, setSelectProject, project, tasks, subtasks}) {
 
   useEffect(() => {
   const init = () => {
     document.body.classList.add("view-2D")};
   init();
-  }, [setSelectProject]);
+  }, [selectProject]);
 
   const ABC = ["a", "b", "c", "d", "e", "f", "g", "h" ]
   
@@ -16,16 +17,13 @@ function GalaxyBuild({selectProject, setSelectProject, project, tasks, subtasks}
 
           </div>
           :
+          <div>
           <div className="galaxyShow">
             <div className="galaxy">
               <div id="universe" className="scale-stretched">
                 <div id="galaxy">
                   <div id="solar-system" className="earth">
                     <div value={project} id="sun"></div>
-
-            <div className="project">
-              <h1>{project.title}</h1>
-            </div>
 
                       {tasks.map((task, index) => task.priority === "Urgent" ?
                         <div key={task.id} value={task} id={`earth-${index + 1}`} className="orbit">
@@ -304,6 +302,7 @@ function GalaxyBuild({selectProject, setSelectProject, project, tasks, subtasks}
                   </div>
                 </div>
               </div>
+            </div>
             </div>
           </div>}
           </div>

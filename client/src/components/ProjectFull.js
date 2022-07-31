@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import { Box, Box2, Box3, FormField, Label, Textarea, TextareaB, Select, button } from "../styles/Index";
+import { Box, Box1, Box2, Box3, Button, Error, Input, FormField, Label, Textarea, Select } from "../styles/index.js";
 import './Project.css'
 
 function ProjectFull({setEditSubtask, setEditTask, setEditProject, selectProject, project, tasks }) {
@@ -18,70 +18,79 @@ function ProjectFull({setEditSubtask, setEditTask, setEditProject, selectProject
 
     return  <div>
                 { selectProject === null  ?
+                <div>
 
-                <div> 
-                    <h1>Select A Project</h1>
                 </div>
                 : 
-                <div >
-                <Box>
-                    <FormField>
-                        <h2>{project.title}</h2>
-                        <label>Description:</label>
+                <div>
+                <Box1 className="Form">
+                    <form>
+                        <h2>{project.title}</h2>                      
+                        <Label>Description:</Label>
                         <Textarea value={project.description}/>
-                        <label>Notes:</label>
+                        <Label>Notes:</Label>
                         <Textarea value={project.body} />
-                        <div>
+                        <Label>Status:</Label>
                             <h4>{project.life_cycle}</h4>
-                            <h4>Sun</h4>
-                        </div>
+                        <Label>Star:</Label>
+                            <h4>{project.priority}</h4>
                         <Link to="/editProject">
-                            <button value={project.id} onClick={HandleSelectProject}>Edit Project</button>
+                            <Button value={project.id} onClick={HandleSelectProject}>Edit Project</Button>
                         </Link>
 
                         <Link to="/newTask">
-                            <button value={project.id} onClick={HandleSelectProject}> add task </button>
+                            <Button value={project.id} onClick={HandleSelectProject}> add task </Button>
                         </Link>                            
-                    </FormField>
+                    </form>
 
-                    {tasks.slice(0).reverse().map((task) =>              
+
+
+
+                    {tasks.slice(0).reverse().map((task) =>    
                     <Box2 key={task.id}>
-                        <FormField>
+                        {/* openning task div */}          
+                    <form>
                         <h2>{task.title}</h2>
-                        <label>Description:</label>
+                        <Label>Description:</Label>
                         <Textarea value={task.description}/>
-                        <label>Notes:</label>
+                        <Label>Notes:</Label>
                         <Textarea value={task.body}/>
-                        <h5>{task.life_cycle}</h5>
-                        <h5>{task.priority}</h5>
+                        <Label>Status:</Label>
+                            <h5>{task.life_cycle}</h5>
+                        <Label>Planet:</Label>
+                            <h5>{task.priority}</h5>
                         <Link to="/editTask">
-                            <button value={task.id} onClick={HandleSelectTask}>Edit Task</button>
+                            <Button value={task.id} onClick={HandleSelectTask}>Edit Task</Button>
                         </Link>
                         <Link to="/newSubtask">
-                            <button value={task.id} onClick={HandleSelectTask}> add sub </button>
+                            <Button value={task.id} onClick={HandleSelectTask}> add sub </Button>
                         </Link>
-                        </FormField>
+                    </form>
+
+
+
 
 
                     {task.subtasks.slice(0).reverse().map((subtask) =>
                     <Box3 key={subtask.id}>    
-                        <FormField>
+                    {/* openning subtask div */}  
+                    <form>
                         <h2>{subtask.title}</h2>
-                        <label>Description:</label>
+                        <Label>Description:</Label>
                         <Textarea value={subtask.description}/>
-                        <label>Notes:</label>
+                        <Label>Notes:</Label>
                         <Textarea value={subtask.body}/>
-                        <h5>{subtask.life_cycle}</h5>
-                        <h5>{subtask.priority}</h5>
+                        <Label>Status:</Label>
+                            <h5>{subtask.life_cycle}</h5>
+                        <Label>Moon:</Label>
+                            <h5>{subtask.priority}</h5>
                         <Link to="/editSubtask">
-                            <button value={subtask.id} onClick={HandleSelectSubtask}>Edit Subtask</button>
+                            <Button value={subtask.id} onClick={HandleSelectSubtask}>Edit Subtask</Button>
                         </Link>
-                    </FormField>
-                    </Box3>)}
-
-                    </Box2>)}
-
-                </Box>
+                    </form>
+                </Box3>)}
+                </Box2>)}
+                </Box1>
                 </div>}
             </div>
 }       

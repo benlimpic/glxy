@@ -1,15 +1,13 @@
 import styled from "styled-components";
 
-const Input = styled.input`
-  border-radius: 6px;
-  border: 1px solid transparent;
-  border-color: #dbdbdb;
-  -webkit-appearance: none;
-  max-width: 10%;
-  width: 10%;
+const Label = styled.label`
+  color: #363636;
+  display: block;
   font-size: 1rem;
-  line-height: 1.5;
-  padding: 4px;
+  font-weight: 500;
+  padding: .5 rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
 `;
 
-export default Input;
+export default Label;
