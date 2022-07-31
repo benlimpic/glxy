@@ -6,6 +6,8 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import { createGlobalStyle } from "styled-components";
 import './index.css';
 
+const express = require('express');
+const app = express();
 
 const GlobalStyle = createGlobalStyle`
   *,
@@ -33,10 +35,9 @@ root.render(
       </React.StrictMode>
 
 );
-var express = require('express');
-var app = express();
-app.use(express.static(__dirname + '/'));
-app.listen(process.env.PORT || 8080);
+
+app.listen(process.env.PORT || 3000);
+
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
