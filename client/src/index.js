@@ -6,18 +6,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import { createGlobalStyle } from "styled-components";
 import './index.css';
 
-const express = require('express');
-const app = express();
-const cors = require('cors');
-require(dotenv).config();
 
-app.use(cors());
-app.use(express.json());
-
-app.listen(process.env.PORT || 3000, () => {
-  console.log(`Server is running on port ${process.env.PORT}`);
-}
-);
 
 
 const GlobalStyle = createGlobalStyle`
@@ -28,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
   }
   html, body {
     margin: 0rem;
+ 
   }
   body {
     font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;

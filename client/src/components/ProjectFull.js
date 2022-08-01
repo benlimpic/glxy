@@ -18,9 +18,9 @@ function ProjectFull({setEditSubtask, setEditTask, setEditProject, selectProject
 
     return  <div>
                 { selectProject === null  ?
-                <div>
-
-                </div>
+                <Box1>
+                    <h1>Select A Project</h1>
+                </Box1>
                 : 
                 <div>
                 <Box1 className="Form">

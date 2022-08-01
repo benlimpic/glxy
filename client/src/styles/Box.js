@@ -5,7 +5,7 @@ const Box = styled.div`
     0 0 0 1px rgb(10 10 10 / 2%);
   padding: 16px;
   background-color: #2A2550;
-  text-align: center;
+
 
 `;
 
