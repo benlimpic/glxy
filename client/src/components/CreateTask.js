@@ -87,13 +87,13 @@ function CreateProject(props) {
                 <FormField>
                     <Label>Priority:</Label>
                     <Select value={priority}
-                        onChange={(e) => setPriority(e.target.value)}>
-                        <option value="">Choose A Planet</option>
-                        <option value="Earth">Earth</option>
-                        <option value="Mars">Mars</option>
-                        <option value="Jupiter">Jupiter</option>
-                        <option value="Saturn">Saturn</option>
-                        <option value="Uranus">Uranus</option>
+                    onChange={(e) => setPriority(e.target.value)}>
+                        <option value="">Choose A Priority</option>
+                        <option value="Urgent">Urgent</option>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                        <option value="None">None</option>
                     </Select>
                 </FormField>
 
