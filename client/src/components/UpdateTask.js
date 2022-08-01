@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import './Form.css'
-import { Box, Box2, Button, Error, Input, FormField, Label, Textarea, Select } from "../styles/index.js";
+import { Box, Box2, Button, Input, FormField, Label, Textarea, Select } from "../styles/Index.js";
 
 function UpdateTask(props) {
   
@@ -11,7 +11,7 @@ function UpdateTask(props) {
   const [body, setBody] = useState([])
   const [lifeCycle, setLifeCycle] = useState([])
   const [priority, setPriority] = useState([])
-  const [errors, setErrors] = useState([]);
+  // const [errors, setErrors] = useState([]);
 
   const navigate = useNavigate()
 
@@ -30,6 +30,7 @@ function UpdateTask(props) {
   
   useEffect(() => {
     getEditTask()
+    // eslint-disable-next-line
   }, [])
 
   const handleSubmitTask = (e) => {
@@ -117,11 +118,11 @@ function UpdateTask(props) {
         <Link to="/">
           <Button> cancel </Button>
         </Link>
-        <FormField>
+        {/* <FormField>
             {errors.map((err) => (
             <Error key={err}>{err}</Error>
         ))}
-        </FormField>
+        </FormField> */}
       </form>
     </Box2>
     </Box>

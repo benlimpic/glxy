@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Error, Input, FormField, Label } from "../styles/index.js";
+import { Button, Error, Input, FormField, Label } from "../styles/Index.js";
 
 
   function LoginForm({ onLogin }) {

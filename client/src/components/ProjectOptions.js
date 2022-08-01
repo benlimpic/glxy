@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import { Select, Button, Box5 } from "../styles/index.js";
+import { Select, Button, Box5 } from "../styles/Index.js";
 
 const ProjectOptions = ({ setSelectProject, projects}) => {
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Button } from "../styles/index.js";
+import { Button } from "../styles/Index.js";
 import { FaSignInAlt } from "react-icons/fa";
 import '../App.css';
 

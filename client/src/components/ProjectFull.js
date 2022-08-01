@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import { Box, Box1, Box2, Box3, Button, Error, Input, FormField, Label, Textarea, Select } from "../styles/index.js";
+import { Box1, Box2, Box3, Button, Label, Textarea} from "../styles/Index.js";
 import './Project.css'
 
 function ProjectFull({setEditSubtask, setEditTask, setEditProject, selectProject, project, tasks }) {
@@ -18,9 +18,8 @@ function ProjectFull({setEditSubtask, setEditTask, setEditProject, selectProject
 
     return  <div>
                 { selectProject === null  ?
-                <Box1>
-                    <h1>Select A Project</h1>
-                </Box1>
+                    <div>
+                    </div>
                 : 
                 <div>
                 <Box1 className="Form">

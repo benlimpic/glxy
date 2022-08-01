@@ -1,7 +1,6 @@
 import {useEffect} from 'react';
 import './GalaxyBuild.css'
-import { Box } from "../styles/index.js";
-function GalaxyBuild({selectProject, setSelectProject, project, tasks, subtasks}) {
+function GalaxyBuild({selectProject, project, tasks}) {
 
   useEffect(() => {
   const init = () => {

@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import './Form.css'
-import { Box, Box2, Button, Error, Input, FormField, Label, Textarea, Select } from "../styles/index.js";
+import { Box, Box2, Button, Input, FormField, Label, Textarea, Select } from "../styles/Index.js";
 
 function CreateProject(props) {
 
@@ -13,7 +13,7 @@ function CreateProject(props) {
     const [body, setBody] = useState('');
     const [lifeCycle, setLifeCycle] = useState('');
     const [priority, setPriority] = useState('');
-    const [errors, setErrors] = useState([]);
+    // const [errors, setErrors] = useState([]);
 
     const getProject = () => {
         fetch(`/projects/${props.editProject}`)
@@ -26,6 +26,7 @@ function CreateProject(props) {
 
     useEffect(() => {
         getProject()
+        // eslint-disable-next-line
     }, [])
 
     const handleSubmitTask = (e) => {
@@ -109,11 +110,11 @@ function CreateProject(props) {
                     </Link>
                 </FormField>
 
-                <FormField>
+                {/* <FormField>
                     {errors.map((err) => (
                     <Error key={err}>{err}</Error>
                 ))}
-                </FormField>
+                </FormField> */}
 
                 </form>
             </Box2>

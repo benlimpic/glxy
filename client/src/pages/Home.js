@@ -3,7 +3,7 @@ import './Home.css'
 import ProjectFull from '../components/ProjectFull'
 import GalaxyBuild from '../components/GalaxyBuild'
 import ProjectOptions from '../components/ProjectOptions'
-import { Button, Box, Box4 } from "../styles/index.js";
+import { Button, Box4 } from "../styles/Index.js";
 
 
 
