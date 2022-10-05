@@ -9,8 +9,8 @@ users = User.create([
   },
   {
     name: "Daisy Mae",
-    email: "daisymaelimpic@gmail.com",
-    username: "username5",
+    email: "benlimpic@gmail.com",
+    username: "usernam3",
     password_digest: BCrypt::Password.create('password')
   }
 ])
@@ -38,7 +38,15 @@ projects = Project.create([
     body: "I need to quest the wilderness and find a unicorn, several dragons, one kraken, the Loch Ness monster, and Bigfoot!",
     priority: "Low",
     life_cycle: "Completed",
-    user: users.second
+    user: users.first
+  },
+  {
+    title: "Example Title",
+    description: "Example Description",
+    body: "Example Body",
+    priority: "Urgent",
+    life_cycle: "Assigned",
+    user: users.first
   }
 ])
 
@@ -86,7 +94,52 @@ tasks = Task.create([
     priority: "Urgent",
     life_cycle: "Completed",
     project: projects.third,
-    user: users.second
+    user: users.first
+  },
+  {
+    title: "Example Title",
+    description: "Example Description",
+    body: "Example Body",
+    priority: "Urgent",
+    life_cycle: "Assigned",
+    project: projects.fourth,
+    user: users.first
+  },
+  {
+    title: "Example Title",
+    description: "Example Description",
+    body: "Example Body",
+    priority: "High",
+    life_cycle: "Assigned",
+    project: projects.fourth,
+    user: users.first
+  },
+  {
+    title: "Example Title",
+    description: "Example Description",
+    body: "Example Body",
+    priority: "Medium",
+    life_cycle: "Assigned",
+    project: projects.fourth,
+    user: users.first
+  },
+  {
+    title: "Example Title",
+    description: "Example Description",
+    body: "Example Body",
+    priority: "Low",
+    life_cycle: "Assigned",
+    project: projects.fourth,
+    user: users.first
+  },
+  {
+    title: "Example Title",
+    description: "Example Description",
+    body: "Example Body",
+    priority: "None",
+    life_cycle: "Assigned",
+    project: projects.fourth,
+    user: users.first
   }
 ])
 
@@ -179,8 +232,8 @@ subtasks = Subtask.create([
     life_cycle: "Completed",
     project: projects.third,
     task: tasks.fifth,
-    user: users.second
-  }
+    user: users.first
+  },
 ])
 
 puts "Some crazy plants is growin!"

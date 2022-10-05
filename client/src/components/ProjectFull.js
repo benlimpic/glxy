@@ -31,7 +31,7 @@ function ProjectFull({setEditSubtask, setEditTask, setEditProject, selectProject
                         <Textarea value={project.body} />
                         <Label>Status:</Label>
                             <h4>{project.life_cycle}</h4>
-                        <Label>Star:</Label>
+                        <Label>Priority:</Label>
                             <h4>{project.priority}</h4>
                         <Link to="/editProject">
                             <Button value={project.id} onClick={HandleSelectProject}>Edit Project</Button>
@@ -56,7 +56,7 @@ function ProjectFull({setEditSubtask, setEditTask, setEditProject, selectProject
                         <Textarea value={task.body}/>
                         <Label>Status:</Label>
                             <h5>{task.life_cycle}</h5>
-                        <Label>Planet:</Label>
+                        <Label>Priority:</Label>
                             <h5>{task.priority}</h5>
                         <Link to="/editTask">
                             <Button value={task.id} onClick={HandleSelectTask}>Edit Task</Button>
@@ -81,7 +81,7 @@ function ProjectFull({setEditSubtask, setEditTask, setEditProject, selectProject
                         <Textarea value={subtask.body}/>
                         <Label>Status:</Label>
                             <h5>{subtask.life_cycle}</h5>
-                        <Label>Moon:</Label>
+                        <Label>Priority:</Label>
                             <h5>{subtask.priority}</h5>
                         <Link to="/editSubtask">
                             <Button value={subtask.id} onClick={HandleSelectSubtask}>Edit Subtask</Button>
