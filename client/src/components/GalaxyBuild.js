@@ -8,9 +8,6 @@ function GalaxyBuild({selectProject, project, tasks, subtasks}) {
   init();
   }, [selectProject, project, tasks, subtasks]);
 
-  const handleClick() => {
-    
-  }
 
   const ABC = ["a", "b", "c", "d", "e", "f", "g", "h" ]
   
