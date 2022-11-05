@@ -1,12 +1,16 @@
 import {useEffect} from 'react';
 import './GalaxyBuild.css'
-function GalaxyBuild({selectProject, project, tasks}) {
+function GalaxyBuild({selectProject, project, tasks, subtasks}) {
 
   useEffect(() => {
   const init = () => {
     document.body.classList.add("view-2D")};
   init();
-  }, [selectProject]);
+  }, [selectProject, project, tasks, subtasks]);
+
+  const handleClick() => {
+    
+  }
 
   const ABC = ["a", "b", "c", "d", "e", "f", "g", "h" ]
   

@@ -13,6 +13,7 @@ import UpdateSubtask from "./components/UpdateSubtask";
 function App() {
 
   const [user, setUser] = useState(null);
+  const [projects, setProjects] = useState([])
   const [selectProject, setSelectProject] = useState(null);
   const [editProject, setEditProject] = useState(null)
   const [editTask, setEditTask] = useState(null)
@@ -42,6 +43,8 @@ function App() {
         <Route path="/" element={
                   <Home 
                     user={user}
+                    projects={projects}
+                    setProjects={setProjects}
                     setSelectProject={handleSelectProject}
                     setEditProject={setEditProject}
                     setEditTask={setEditTask}
@@ -55,6 +58,8 @@ function App() {
         <Route path="/newProject" element={
                   <CreateProject
                     user={user} 
+                    projects={projects}
+                    setProjects={setProjects}
                     setSelectProject={setSelectProject} />}
                   />
 

@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import './Form.css'
 import { Box, Box1, Button, Input, FormField, Label, Textarea, Select } from "../styles/Index.js";
@@ -14,6 +14,8 @@ function CreateProject(props) {
     const [priority, setPriority] = useState('');
     // const [errors, setErrors] = useState([]);
 
+
+    
     const handleSubmitProject = (e) => {
     e.preventDefault();
     fetch("/projects", {
@@ -33,6 +35,15 @@ function CreateProject(props) {
     })
     navigate("/")
     }
+
+    // useEffect((e) => {
+    //     e.preventDefault();
+    //     fetch(`/projects/`)
+    //     .then(r => r.json())
+    //     .then(data => {
+    //         props.setProjects(data)
+    // }, [handleSubmitProject])
+    // })
 
     return  <Box>
             <Box1 className="Form">

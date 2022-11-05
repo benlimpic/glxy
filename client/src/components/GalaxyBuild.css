@@ -1,4 +1,9 @@
-
+.title {
+  position: absolute;
+  color: white;
+  font-size: 25em;
+  z-index: 2;
+}
 .project {
   color: rgb(109, 108, 108);
   text-align: left;

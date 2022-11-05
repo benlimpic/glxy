@@ -31,7 +31,7 @@ function ProjectFull({setEditSubtask, setEditTask, setEditProject, selectProject
                         <Textarea value={project.body} />
                         <Label>Status:</Label>
                             <h4>{project.life_cycle}</h4>
-                        <Label>Priority:</Label>
+                        <Label>Party Time:</Label>
                             <h4>{project.priority}</h4>
                         <Link to="/editProject">
                             <Button value={project.id} onClick={HandleSelectProject}>Edit Project</Button>
@@ -46,8 +46,7 @@ function ProjectFull({setEditSubtask, setEditTask, setEditProject, selectProject
 
 
                     {tasks.slice(0).reverse().map((task) =>    
-                    <Box2 key={task.id}>
-                        {/* openning task div */}          
+                    <Box2 key={task.id}>        
                     <form>
                         <h2>{task.title}</h2>
                         <Label>Description:</Label>
@@ -72,7 +71,6 @@ function ProjectFull({setEditSubtask, setEditTask, setEditProject, selectProject
 
                     {task.subtasks.slice(0).reverse().map((subtask) =>
                     <Box3 key={subtask.id}>    
-                    {/* openning subtask div */}  
                     <form>
                         <h2>{subtask.title}</h2>
                         <Label>Description:</Label>
