@@ -1,2 +1,2 @@
-web: bundle exec rackup config.ru -p $PORT
-release: rails db:migrate
+web: bundle exec rails s -p $PORT
+release: bin/rake db:migrate
