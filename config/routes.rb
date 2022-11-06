@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  root "users#me"
   resources :users
   resources :projects
   resources :tasks
