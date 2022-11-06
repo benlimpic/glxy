@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  root 'fallback#index'
   resources :users
   resources :projects
   resources :tasks
