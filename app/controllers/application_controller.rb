@@ -10,9 +10,9 @@ class ApplicationController < ActionController::API
     render json: {errors: err.record.errors.full_messages}, status: 422
   end
 
-  # def render_not_found(err)
-  #   render json: {errors: err.errors.full_messages}, status: 404
-  # end
+  def render_not_found(err)
+    render json: {errors: err.errors.full_messages}, status: 404
+  end
 
   def render_unauthorized(err)
     render json: {errors: "Not Authorized"}, status: 401
