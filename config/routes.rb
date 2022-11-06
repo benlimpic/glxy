@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'fallback#index'
+  root '"users#me"'
   resources :users
   resources :projects
   resources :tasks
