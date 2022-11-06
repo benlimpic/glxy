@@ -1,7 +1,8 @@
 class WelcomeController < ApplicationController
 
   def index
-    render json: {message: "Welcome to the Task Manager API"}
+    # React app index page
+    render file: 'client/public/index.html'
   end
 
 end
