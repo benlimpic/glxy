@@ -1,25 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+to run in development mode simply bundle install in the root folder 
 
-Things you may want to cover:
+rails db:create db:migrate db: seed
 
-* Ruby version
+and start the rails server
 
-* System dependencies
+then cd into the client folder and npm install before running npm start on the same port.
 
-* Configuration
+quick start by using username and password for login credentials and messing with seed data
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 # glxy
